@@ -1,0 +1,64 @@
+{
+    "Ze'ev Waismann": {
+        "role": "Founder",
+        "name": "Ze'ev Waismann",
+        "email": "zwaismann@electrafilmworks.co",
+        "phone": "+1 (323) 540-1127"
+    },
+    "Lorenzo de Guia": {
+        "role": "Exec. Producer | Founder",
+        "name": "Lorenzo de Guia",
+        "email": "tristan@electrafilmworks.com",
+        "phone": "+1 (323) 864-5568",
+        "projects": [
+            {
+                "title": "Driven",
+                "client": "BMW",
+                "image": "/images/ld_BMW_THE_AGILITY_OF_M_30sec_thumbnail.webp",
+                "videoUrl": "/videos/lorenzo_0.mp4"
+            },
+            {
+                "title": "Project See Me",
+                "client": "3M",
+                "image": "/images/ld_Ford_LEGACY_30sec_thumbnail.webp",
+                "videoUrl": "/videos/lorenzo_1.mp4"
+            },
+            {
+                "title": "More More",
+                "client": "Blue Shield",
+                "image": "/images/ld_BMW_THE_AGILITY_OF_M_30sec_thumbnail.webp",
+                "videoUrl": "/videos/lorenzo_2.mp4"
+            },
+            {
+                "title": "Leeper",
+                "client": "Nike",
+                "image": "/images/ld_BMW_THE_AGILITY_OF_M_30sec_thumbnail.webp",
+                "videoUrl": "/videos/lorenzo_3.mp4"
+            },
+            {
+                "title": "Thank You, Hockey",
+                "client": "NHL",
+                "image": "/images/ld_BMW_THE_AGILITY_OF_M_30sec_thumbnail.webp",
+                "videoUrl": "/videos/lorenzo_4.mp4"
+            }
+        ]
+    },
+    "Anthony Garth": {
+        "role": "Executive Producer",
+        "name": "José A. Alvarez",
+        "email": "jose@electrafilmworks.com",
+        "phone": "+1 (323) 549-3901"
+    },
+    "Ben Weinstein": {
+        "role": "Director | Founder",
+        "name": "Ilene Silberman",
+        "email": "silbermanpro@gmail.com",
+        "phone": "+1 (917) 880-6747"
+    },
+    "Kailee McGee": {
+        "role": "Director | Founder",
+        "name": "Nathan Skillkorn",
+        "email": "nathan@heartbrainsandnerves.com",
+        "phone": "+1 (312) 401-8039"
+    }
+}

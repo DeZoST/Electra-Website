@@ -1,0 +1,42 @@
+{
+    "Staff": [
+        {
+            "role": "Director | Founder",
+            "name": "Ze'ev Waismann",
+            "email": "zwaismann@electrafilmworks.co",
+            "phone": "+1 (323) 540-1127"
+        },
+        {
+            "role": "Exec. Producer | Founder",
+            "name": "Tristan Drew",
+            "email": "tristan@electrafilmworks.com",
+            "phone": "+1 (323) 864-5568"
+        },
+        {
+            "role": "Executive Producer",
+            "name": "José A. Alvarez",
+            "email": "jose@electrafilmworks.com",
+            "phone": "+1 (323) 549-3901"
+        }
+    ],
+    "Reps": [
+        {
+            "location": "East Coast",
+            "name": "Ilene Silberman",
+            "email": "silbermanpro@gmail.com",
+            "phone": "+1 (917) 880-6747"
+        },
+        {
+            "location": "Midwest",
+            "name": "Nathan Skillkorn",
+            "email": "nathan@heartbrainsandnerves.com",
+            "phone": "+1 (312) 401-8039"
+        },
+        {
+            "location": "West Coast",
+            "name": "Lisa Schreiber Naber",
+            "email": "lisa@boradwalklausd.com",
+            "phone": "+1 (917) 880-6747"
+        }
+    ]
+}
