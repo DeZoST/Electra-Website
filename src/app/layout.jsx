@@ -9,9 +9,10 @@ const montSerrat = Montserrat({
 
 export const metadata = {
     title: "Electra FilmWorks",
-    description: "Electra FilmWorks official website",
+    description:
+        "Electra Filmworks is a leading film production company that has set itself apart in the industry by creating compelling branded content and commercial work.",
     keywords:
-        "Electra FilmWorks, Electra, FilmWorks, Electra FilmWorks official website, Commerc",
+        "Electra FilmWorks, Electra, FilmWorks, Electra FilmWorks official website, Commercials",
     icons: {
         icon: "/images/favicon.ico",
     },
@@ -19,7 +20,8 @@ export const metadata = {
         type: "website",
         url: "https://electrafilmworks.com",
         title: "Electra FilmWorks",
-        description: "Electra FilmWorks official website",
+        description:
+            "Electra Filmworks is a leading film production company that has set itself apart in the industry by creating compelling branded content and commercial work.",
         images: [
             {
                 url: "/images/og.png",
