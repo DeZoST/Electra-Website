@@ -1,19 +1,16 @@
+import { Suspense } from "react";
 import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
-import path from "path";
-import fs from "fs/promises";
 
 export async function generateStaticParams() {
-    const filePath = path.join(process.cwd(), "/data/directors.json");
-    const data = await fs.readFile(filePath, "utf-8");
-    const directors = JSON.parse(data);
-
+    const res = await fetch("http://localhost:3000/data/directors.json");
+    const directors = await res.json();
     return Object.keys(directors).map((name) => ({
         name: encodeURIComponent(name),
     }));
 }
 
 export async function generateMetadata({ params }) {
-    const { name } = await params;
+    const { name } = params;
     const decodedName = decodeURIComponent(name);
     return {
         title: `${decodedName} - Director`,
@@ -22,12 +19,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function DirectorPage({ params }) {
-    const { name } = await params;
+    const { name } = params;
     const decodedName = decodeURIComponent(name);
 
-    const filePath = path.join(process.cwd(), "public/data/directors.json");
-    const data = await fs.readFile(filePath, "utf-8");
-    const directors = JSON.parse(data);
+    // Fetch the directors data
+    const res = await fetch("http://localhost:3000/data/directors.json");
+    const directors = await res.json();
 
     const director = directors[decodedName];
 
@@ -46,24 +43,26 @@ export default async function DirectorPage({ params }) {
             </h1>
             <p className="mt-2 text-lg text-gray-400">{director.role}</p>
 
-            <ul className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2">
-                {director.projects && director.projects.length > 0 ? (
-                    director.projects.map((project, index) => (
-                        <li key={index}>
-                            <ProjectVideoCard
-                                title={project.title}
-                                client={project.client}
-                                image={project.image}
-                                videoUrl={project.videoUrl}
-                            />
-                        </li>
-                    ))
-                ) : (
-                    <p className="text-white">
-                        No projects available for this director.
-                    </p>
-                )}
-            </ul>
+            <Suspense fallback={<div>Loading projects...</div>}>
+                <ul className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2">
+                    {director.projects && director.projects.length > 0 ? (
+                        director.projects.map((project, index) => (
+                            <li key={index}>
+                                <ProjectVideoCard
+                                    title={project.title}
+                                    client={project.client}
+                                    image={project.image}
+                                    videoUrl={project.videoUrl}
+                                />
+                            </li>
+                        ))
+                    ) : (
+                        <p className="text-white">
+                            No projects available for this director.
+                        </p>
+                    )}
+                </ul>
+            </Suspense>
         </div>
     );
 }
