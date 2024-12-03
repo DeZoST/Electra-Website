@@ -2,7 +2,9 @@ import { Suspense } from "react";
 import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
 
 export async function generateStaticParams() {
-    const res = await fetch("http://localhost:3000/data/directors.json");
+    const res = await fetch(
+        "https://electra-website-dusky.vercel.app/data/directors.json"
+    );
     const directors = await res.json();
     return Object.keys(directors).map((name) => ({
         name: encodeURIComponent(name),
@@ -23,7 +25,9 @@ export default async function DirectorPage({ params }) {
     const decodedName = decodeURIComponent(name);
 
     // Fetch the directors data
-    const res = await fetch("http://localhost:3000/data/directors.json");
+    const res = await fetch(
+        "https://electra-website-dusky.vercel.app/data/directors.json"
+    );
     const directors = await res.json();
 
     const director = directors[decodedName];
