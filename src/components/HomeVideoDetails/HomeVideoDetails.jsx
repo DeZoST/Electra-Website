@@ -8,44 +8,46 @@ function HomeVideoDetails({
     progressRefs,
     revealClass,
 }) {
-    const [isLogoAnimating, setIsLogoAnimating] = useState(false);
+    const [isFadedIn, setIsFadedIn] = useState(false);
+    const [isTranslated, setIsTranslated] = useState(false);
 
     useEffect(() => {
-        const handlePageReady = () => {
-            setIsLogoAnimating(true); // Trigger animation when page is ready
-        };
+        setIsFadedIn(true);
 
-        // Listen for the "pageReady" event
-        window.addEventListener("pageReady", handlePageReady);
+        const translationTimeout = setTimeout(() => {
+            setIsTranslated(true);
+        }, 1000);
 
-        return () => {
-            window.removeEventListener("pageReady", handlePageReady);
-        };
+        return () => clearTimeout(translationTimeout);
     }, []);
 
     return (
         <div className="flex items-end justify-end w-full h-full">
-            <ul className="grid grid-cols-3 grid-rows-2 p-12 text-sm">
-                {/* Logo */}
-                <li className="flex items-center justify-center">
+            <ul className="relative grid grid-cols-3 grid-rows-2 p-12 text-sm">
+                <li
+                    className={`relative flex items-center justify-center z-50`}
+                    style={{
+                        transform: isTranslated
+                            ? "translateY(0)"
+                            : "translateY(0)",
+                        position: "relative",
+                        opacity: isFadedIn ? 1 : 0,
+                        transition: `
+                            opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                            transform 1s cubic-bezier(0.22, 1, 0.36, 1)`,
+                    }}
+                >
                     <Image
-                        className={`relative z-50 p-4 transition-all duration-1000 ease-in-out 
-                            ${
-                                isLogoAnimating
-                                    ? "translate-y-0 top-0"
-                                    : "translate-y-[100%] top-[-479px]"
-                            }`}
                         src="/images/Electra_White.svg"
                         alt="Electra logo"
                         width={320}
                         height={85}
-                        style={{
-                            position: "relative",
-                        }}
+                        loading="eager"
+                        priority
+                        className="z-50"
                     />
                 </li>
 
-                {/* Video List */}
                 {videos.map((video, index) => (
                     <li
                         key={index}

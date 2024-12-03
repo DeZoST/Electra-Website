@@ -56,14 +56,12 @@ main {
     opacity: 0;
 }
 
-/* Common Initial State for Hidden Elements */
 .reveal-hidden {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Reveal Animation from Top to Bottom */
 .reveal-top-to-bottom {
     opacity: 1;
     transform: translateY(0);
@@ -81,7 +79,6 @@ main {
     }
 }
 
-/* Reveal Animation from Bottom to Top */
 .reveal-bottom-to-top {
     opacity: 1;
     transform: translateY(0);
@@ -97,19 +94,4 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-@keyframes logo-slide-down {
-    0% {
-        transform: translateY(-479px); /* Start at initial position */
-        opacity: 1; /* Fully visible from the beginning */
-    }
-    100% {
-        transform: translateY(0); /* End at final position */
-        opacity: 1; /* Maintain visibility */
-    }
-}
-
-.logo-animation {
-    animation: logo-slide-down 0.8s ease-out forwards; /* Adjust duration/timing as needed */
 }

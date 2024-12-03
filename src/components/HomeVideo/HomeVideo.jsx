@@ -11,6 +11,9 @@ function HomeVideo({ videos }) {
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
+    const [isJsonLoaded, setIsJsonLoaded] = useState(false);
+    const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+    const [isFirstVideoLoaded, setIsFirstVideoLoaded] = useState(false);
     const videoRef = useRef(null);
     const progressRefs = useRef([]);
     const readyCheckInterval = useRef(null);
@@ -52,6 +55,18 @@ function HomeVideo({ videos }) {
         }
     };
 
+    const handleJsonLoad = () => {
+        setIsJsonLoaded(true);
+    };
+
+    const handleImageLoad = () => {
+        setIsFirstImageLoaded(true);
+    };
+
+    const handleFirstVideoLoad = () => {
+        setIsFirstVideoLoaded(true);
+    };
+
     useEffect(() => {
         if (videoRef.current) {
             videoRef.current
@@ -81,6 +96,12 @@ function HomeVideo({ videos }) {
         });
     }, [activeVideoIndex]);
 
+    useEffect(() => {
+        if (isJsonLoaded && isFirstImageLoaded && isFirstVideoLoaded) {
+            setIsLoading(false);
+        }
+    }, [isJsonLoaded, isFirstImageLoaded, isFirstVideoLoaded]);
+
     return (
         <section className="relative w-full h-screen">
             {isLoading && <Loader fadeOut={isFadingOut} />}
@@ -102,8 +123,9 @@ function HomeVideo({ videos }) {
                                     muted
                                     playsInline
                                     className="absolute top-0 left-0 object-cover w-full h-dvh"
+                                    onLoadedData={handleFirstVideoLoad}
                                 />
-                                <figcaption className="flex items-end justify-between w-full p-4 text-xs tracking-tight before:h-80 before:w-full before:absolute before:bottom-0 before:left-0 before:bg-gradient-to-b before:from-transparent before:to-black/70 before:content-['']">
+                                <figcaption className="z-0 flex items-end justify-between w-full p-4 text-xs tracking-tight ">
                                     <div>
                                         <p className="font-semibold text-gray-300">
                                             {video.title}
@@ -133,6 +155,7 @@ function HomeVideo({ videos }) {
                             playsInline
                             className="object-cover w-full h-full"
                             onEnded={handleVideoEnd}
+                            onLoadedData={handleFirstVideoLoad}
                         />
                     </figure>
 
