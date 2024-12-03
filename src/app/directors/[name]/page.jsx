@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs/promises";
 
 export async function generateStaticParams() {
-    const filePath = path.join(process.cwd(), "data/directors.json");
+    const filePath = path.join(process.cwd(), "/data/directors.json");
     const data = await fs.readFile(filePath, "utf-8");
     const directors = JSON.parse(data);
 

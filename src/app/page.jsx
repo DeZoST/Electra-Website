@@ -1,4 +1,4 @@
-import HomeVideo from "../components/HomeVideo/HomeVideo";
+import HomeVideo from "@/components/HomeVideo/HomeVideo";
 
 export const revalidate = 3600;
 
