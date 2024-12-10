@@ -67,7 +67,7 @@ function Header() {
         <header
             className={`fixed z-50 flex items-center justify-between w-full header-text ${revealClass}`}
         >
-            <TransitionLink href={"/"} className="p-6">
+            <TransitionLink href={"/"} className="px-10 py-6">
                 <Image
                     src={`/images/Bolt_Star_${isOpen ? "Orange" : "White"}.svg`}
                     alt={`Bolt Star ${isOpen ? "Orange" : "White"} Logo`}
@@ -130,7 +130,7 @@ function Header() {
                         >
                             <TransitionLink
                                 href={link.href}
-                                className={`p-2 py-6 transition-opacity duration-300 last:pr-6 ${getLinkClass(
+                                className={`p-2 py-6 transition-opacity duration-300 last:pr-10 ${getLinkClass(
                                     link.href
                                 )}`}
                             >
