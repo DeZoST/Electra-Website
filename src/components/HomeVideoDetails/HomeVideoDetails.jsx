@@ -26,7 +26,7 @@ function HomeVideoDetails({
             <ul
                 className={`relative grid grid-cols-3 grid-rows-2 p-12 text-sm ${revealClass}`}
             >
-                <li className={`relative flex items-center justify-center`}>
+                <li className={`relative flex items-center justify-center p-5`}>
                     <Image
                         src="/images/Electra_White.svg"
                         alt="Electra logo"
@@ -40,7 +40,7 @@ function HomeVideoDetails({
                 {videos.map((video, index) => (
                     <li
                         key={index}
-                        className={`relative cursor-pointer transition-transform duration-300 min-w-80 p-4 ${
+                        className={`relative cursor-pointer transition-transform duration-300 min-w-80 p-5 ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}
