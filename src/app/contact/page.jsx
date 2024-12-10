@@ -16,7 +16,11 @@ async function Contact() {
                         <ul className="text-gray-400">
                             <li className="uppercase">{staff.role}</li>
                             <li className="text-white">{staff.name}</li>
-                            <li>{staff.email}</li>
+                            <li>
+                                <a href={`mailto:${staff.email}`}>
+                                    {staff.email}
+                                </a>
+                            </li>
                             <li>{staff.phone}</li>
                         </ul>
                     </li>
@@ -39,7 +43,9 @@ async function Contact() {
                         <ul className="text-gray-400">
                             <li className="uppercase">{rep.location}</li>
                             <li className="text-white">{rep.name}</li>
-                            <li>{rep.email}</li>
+                            <li>
+                                <a href={`mailto:${rep.email}`}>{rep.email}</a>
+                            </li>
                             <li>{rep.phone}</li>
                         </ul>
                     </li>
