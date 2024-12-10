@@ -101,7 +101,7 @@ function Header() {
                             </svg>
                         </button>
                         <ul
-                            className={`absolute z-50 w-48 p-4 mt-2 text-sm rounded-md shadow-lg -translate-x-2/4 left-2/4 bg-black/70 transition-all duration-300 ease-in-out ${
+                            className={`absolute z-50 w-48 p-4 text-sm rounded-md text-center -translate-x-1/2 left-1/2 transition-all duration-300 ease-in-out ${
                                 isDropdownOpen
                                     ? "opacity-100 scale-100 translate-y-0"
                                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
@@ -114,7 +114,7 @@ function Header() {
                                 >
                                     <TransitionLink
                                         href={`/directors/${director}`}
-                                        className="transition-opacity duration-300"
+                                        className="transition-all duration-150"
                                     >
                                         {director}
                                     </TransitionLink>
