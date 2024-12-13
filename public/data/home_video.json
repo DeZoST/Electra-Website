@@ -3,30 +3,30 @@
         "title": "DUST IS GOLD",
         "brand": "Ford",
         "director": "Ze'ev Waismann",
-        "src": "/videos/video1.webm"
+        "src": "/videos/video1.mp4"
     },
     {
         "title": "Driven",
         "brand": "BMW",
         "director": "Lorenzo de Guia",
-        "src": "/videos/video2.webm"
+        "src": "/videos/video2.mp4"
     },
     {
         "title": "Storm",
         "brand": "Ford",
         "director": "Anthony Garth",
-        "src": "/videos/video3.webm"
+        "src": "/videos/video3.mp4"
     },
     {
         "title": "Pop Star",
         "brand": "Geico",
         "director": "Ben Weinstein",
-        "src": "/videos/video4.webm"
+        "src": "/videos/video4.mp4"
     },
     {
         "title": "VRT",
         "brand": "Boise",
         "director": "Kailee McGee",
-        "src": "/videos/video5.webm"
+        "src": "/videos/video5.mp4"
     }
 ]
