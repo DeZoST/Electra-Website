@@ -11,8 +11,6 @@ function HomeVideo({ videos }) {
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
-    const [isJsonLoaded, setIsJsonLoaded] = useState(false);
-    const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
     const [isFirstVideoLoaded, setIsFirstVideoLoaded] = useState(false);
     const videoRef = useRef(null);
     const progressRefs = useRef([]);
@@ -55,14 +53,6 @@ function HomeVideo({ videos }) {
         }
     };
 
-    const handleJsonLoad = () => {
-        setIsJsonLoaded(true);
-    };
-
-    const handleImageLoad = () => {
-        setIsFirstImageLoaded(true);
-    };
-
     const handleFirstVideoLoad = () => {
         setIsFirstVideoLoaded(true);
     };
@@ -97,10 +87,10 @@ function HomeVideo({ videos }) {
     }, [activeVideoIndex]);
 
     useEffect(() => {
-        if (isJsonLoaded && isFirstImageLoaded && isFirstVideoLoaded) {
+        if (isFirstVideoLoaded) {
             setIsLoading(false);
         }
-    }, [isJsonLoaded, isFirstImageLoaded, isFirstVideoLoaded]);
+    }, [isFirstVideoLoaded]);
 
     return (
         <section className="relative w-full h-screen">
@@ -111,7 +101,7 @@ function HomeVideo({ videos }) {
                     {videos.map((video, index) => (
                         <li
                             key={index}
-                            className={`relative flex items-end w-full h-dvh ${revealClass}`}
+                            className={`relative flex items-end w-full h-dvh ${revealClass} `}
                         >
                             <figure className="flex items-end w-full h-full">
                                 <video
