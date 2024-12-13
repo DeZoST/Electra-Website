@@ -22,7 +22,7 @@ function HomeVideoDetails({
     }, []);
 
     return (
-        <div className="flex items-end justify-end w-full h-full">
+        <div className="flex items-end justify-end w-full h-full overflow-hidden">
             <ul
                 className={`relative grid grid-cols-3 grid-rows-2 p-12 text-sm ${revealClass}`}
             >
