@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image.js";
-import { TransitionLink } from "../TransitionLink/TransitionLink.jsx";
+import Image from "next/image";
+import { TransitionLink } from "../TransitionLink/TransitionLink";
 import { usePathname } from "next/navigation";
 import useRevealAnimation from "../../hooks/useRevealAnimation";
 
@@ -11,63 +11,46 @@ function Header() {
     const [directors, setDirectors] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [hoveredLink, setHoveredLink] = useState(null);
     const pathname = usePathname();
     const revealClass = useRevealAnimation(true, "top");
 
     useEffect(() => {
-        async function fetchNavLinks() {
+        async function fetchNavData() {
             try {
-                const res = await fetch("/data/nav_links.json");
-                const data = await res.json();
-                setNavLinks(data);
+                const [linksRes, directorsRes] = await Promise.all([
+                    fetch("/data/nav_links.json"),
+                    fetch("/data/directors.json"),
+                ]);
+
+                const [linksData, directorsData] = await Promise.all([
+                    linksRes.json(),
+                    directorsRes.json(),
+                ]);
+
+                setNavLinks(linksData);
+                setDirectors(Object.keys(directorsData));
             } catch (err) {
-                console.error("Failed to fetch navigation links:", err);
+                console.error("Failed to fetch navigation data:", err);
             }
         }
 
-        async function fetchDirectors() {
-            try {
-                const res = await fetch("/data/directors.json");
-                const data = await res.json();
-                setDirectors(Object.keys(data));
-            } catch (err) {
-                console.error("Failed to fetch directors:", err);
-            }
-        }
-
-        fetchNavLinks();
-        fetchDirectors();
+        fetchNavData();
     }, []);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleMenu = () => setIsOpen(!isOpen);
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
+    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
-    const isHomePage = pathname === "/";
-
-    const getLinkClass = (href) => {
-        if (isHomePage) {
-            if (!hoveredLink) return "text-white";
-            return hoveredLink === href
-                ? "text-white"
-                : "opacity-50 hover:opacity-100";
-        } else {
-            return pathname === href
-                ? "text-white"
-                : "opacity-50 hover:opacity-100";
-        }
-    };
+    const getLinkClass = (href) =>
+        pathname === href
+            ? "text-white"
+            : "opacity-50 hover:opacity-100 text-white";
 
     return (
         <header
             className={`fixed z-50 flex items-center justify-between w-full header-text ${revealClass}`}
         >
-            <TransitionLink href={"/"} className="px-10 py-6">
+            <TransitionLink href="/" className="px-10 py-6">
                 <Image
                     src={`/images/Bolt_Star_${isOpen ? "Orange" : "White"}.svg`}
                     alt={`Bolt Star ${isOpen ? "Orange" : "White"} Logo`}
@@ -123,14 +106,10 @@ function Header() {
                         </ul>
                     </li>
                     {navLinks.map((link, index) => (
-                        <li
-                            key={index}
-                            onMouseEnter={() => setHoveredLink(link.href)}
-                            onMouseLeave={() => setHoveredLink(null)}
-                        >
+                        <li key={index} className="last:pr-10">
                             <TransitionLink
                                 href={link.href}
-                                className={`p-2 py-6 transition-opacity duration-300 last:pr-10 ${getLinkClass(
+                                className={`px-6 transition-opacity duration-300 ${getLinkClass(
                                     link.href
                                 )}`}
                             >
@@ -140,7 +119,6 @@ function Header() {
                     ))}
                 </ul>
             </nav>
-
             <button
                 aria-label="Open navigation"
                 className="relative flex items-center before:bg-transparent before:absolute before:-inset-8 lg:hidden"
