@@ -33,6 +33,7 @@ async function Contact() {
                     height={100}
                     src={"/images/Electra_Orange.svg"}
                     alt="Electra logo"
+                    priority
                 />
             </div>
 
