@@ -8,8 +8,7 @@ export default function ProjectVideoCard({ title, client, image, videoUrl }) {
                     src={image}
                     alt={title}
                     fill
-                    objectFit="cover"
-                    className="transition-transform duration-300 group-hover:scale-110"
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
                 />
             </div>
 
