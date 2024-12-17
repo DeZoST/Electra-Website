@@ -7,7 +7,7 @@ export async function generateStaticParams() {
     );
     const directors = await res.json();
     return Object.keys(directors).map((name) => ({
-        name: encodeURIComponent(name),
+        name: encodeURIComponent(name).toLowerCase(),
     }));
 }
 
@@ -22,17 +22,26 @@ export async function generateMetadata({ params }) {
 
 export default async function DirectorPage({ params }) {
     const { name } = await params;
-    const decodedName = decodeURIComponent(name);
+    const decodedName = decodeURIComponent(name).toLowerCase();
 
     // Fetch the directors data
     const res = await fetch(
-        "https://electra-website-dusky.vercel.app/data/directors.json"
+        "https://electra-website-dusky.vercel.app/data/directors.json",
+        { cache: "no-store" } // Prevent caching issues
     );
     const directors = await res.json();
 
-    const director = directors[decodedName];
+    // Normalize the director names
+    const directorsNormalized = {};
+    Object.keys(directors).forEach((key) => {
+        directorsNormalized[key.toLowerCase()] = directors[key];
+    });
+
+    const director = directorsNormalized[decodedName];
 
     if (!director) {
+        console.log("Director not found for:", decodedName);
+        console.log("Available directors:", Object.keys(directorsNormalized));
         return (
             <div className="flex items-center justify-center text-white h-dvh">
                 <p>Director not found</p>
