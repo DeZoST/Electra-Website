@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-    const { name } = params;
+    const { name } = await params;
     const decodedName = decodeURIComponent(name);
     return {
         title: `${decodedName} - Director`,
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function DirectorPage({ params }) {
-    const { name } = params;
+    const { name } = await params;
     const decodedName = decodeURIComponent(name);
 
     // Fetch the directors data
@@ -48,7 +48,7 @@ export default async function DirectorPage({ params }) {
             <p className="mt-2 text-lg text-gray-400">{director.role}</p>
 
             <Suspense fallback={<div>Loading projects...</div>}>
-                <ul className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2">
+                <ul className="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
                     {director.projects && director.projects.length > 0 ? (
                         director.projects.map((project, index) => (
                             <li key={index}>
