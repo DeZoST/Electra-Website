@@ -54,7 +54,6 @@ export default async function DirectorPage({ params }) {
             <h1 className="text-3xl font-bold text-orange-400 uppercase">
                 {director.name}
             </h1>
-            <p className="mt-2 text-lg text-gray-400">{director.role}</p>
 
             <Suspense fallback={<div>Loading projects...</div>}>
                 <ul className="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
