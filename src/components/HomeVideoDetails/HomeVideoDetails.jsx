@@ -7,45 +7,34 @@ function HomeVideoDetails({
     handleHover,
     progressRefs,
     revealClass,
+    isLogoAnimating,
+    isLogoRevealed,
+    isContainerTranslated,
 }) {
-    const [isLogoAnimating, setIsLogoAnimating] = useState(false);
-
-    useEffect(() => {
-        const handlePageReady = () => {
-            setIsLogoAnimating(true); // Trigger animation when page is ready
-        };
-
-        // Listen for the "pageReady" event
-        window.addEventListener("pageReady", handlePageReady);
-
-        return () => {
-            window.removeEventListener("pageReady", handlePageReady);
-        };
-    }, []);
-
     return (
         <div className="flex items-end justify-end w-full h-full">
             <ul className="grid grid-cols-3 grid-rows-2 p-12 text-sm">
                 {/* Logo */}
                 <li>
                     <div
-                        className={`relative overflow-hidden flex items-center justify-center w-full h-full z-50 transition-all duration-1000 ease-in-out 
+                        className={`overflow-hidden flex items-center justify-center w-full h-full z-50 transition-all duration-700 ease-in-out 
                             ${
                                 isLogoAnimating
                                     ? "relative top-0"
                                     : "relative -top-[500%]"
-                            }`}
+                            } ${
+                            isContainerTranslated
+                                ? "opacity-100 pointer-events-none"
+                                : ""
+                        }`}
                     >
                         <Image
                             className={`p-4 transition-transform duration-1000 ease-in-out 
-                                
                                 ${
-                                    isLogoAnimating
-                                        ? "translate-y-0"
-                                        : "translate-y-[110%]"
-                                }
-
-                                `}
+                                    isLogoRevealed
+                                        ? "translate-y-0 opacity-100"
+                                        : "translate-y-[110%] opacity-0"
+                                }`}
                             src="/images/Electra_White.svg"
                             alt="Electra logo"
                             width={320}

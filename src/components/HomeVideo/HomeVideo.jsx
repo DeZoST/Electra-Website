@@ -11,6 +11,10 @@ function HomeVideo({ videos }) {
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
+    const [isLogoAnimating, setIsLogoAnimating] = useState(false);
+    const [isLogoRevealed, setIsLogoRevealed] = useState(false);
+    const [isContainerTranslated, setIsContainerTranslated] = useState(false);
+
     const videoRef = useRef(null);
     const progressRefs = useRef([]);
     const readyCheckInterval = useRef(null);
@@ -29,8 +33,32 @@ function HomeVideo({ videos }) {
         const video = videoRef.current;
         if (video && video.readyState >= 3) {
             clearInterval(readyCheckInterval.current);
-            fadeOutLoader();
+            triggerLogoAnimationSequence();
         }
+    };
+
+    const triggerLogoAnimationSequence = () => {
+        // Step 1: Trigger logoVisibility after 500ms
+
+        // Step 2: Trigger logo reveal animation after logoVisibility is set
+        setTimeout(() => {
+            setIsLogoRevealed(true); // Reveal the logo
+
+            // Step 3: Trigger logo animation
+            setTimeout(() => {
+                setIsLogoAnimating(true);
+
+                // Step 4: Trigger container translation after 500ms
+                setTimeout(() => {
+                    setIsContainerTranslated(true);
+
+                    // Step 5: Fade out the loader after container translation
+                    setTimeout(() => {
+                        fadeOutLoader();
+                    }, 500);
+                }, 700);
+            }, 1000);
+        }, 500);
     };
 
     const fadeOutLoader = () => {
@@ -38,7 +66,7 @@ function HomeVideo({ videos }) {
         setTimeout(() => {
             setIsLoading(false);
             window.dispatchEvent(new CustomEvent("pageReady"));
-        }, 500);
+        }, 1000); // Match the Loader fade-out duration
     };
 
     const updateProgress = () => {
@@ -99,7 +127,7 @@ function HomeVideo({ videos }) {
                             muted
                             playsInline
                             className="absolute top-0 left-0 object-cover w-full h-dvh"
-                            onLoadedData={fadeOutLoader}
+                            onLoadedData={triggerLogoAnimationSequence}
                         />
                         <figcaption className="z-0 flex items-end justify-between w-full p-4 text-xs tracking-tight">
                             <div>
@@ -131,7 +159,7 @@ function HomeVideo({ videos }) {
                     playsInline
                     className="object-cover w-full h-full"
                     onEnded={handleVideoEnd}
-                    onLoadedData={fadeOutLoader}
+                    onLoadedData={triggerLogoAnimationSequence}
                 />
             </figure>
             <HomeVideoDetails
@@ -140,6 +168,9 @@ function HomeVideo({ videos }) {
                 handleHover={handleHover}
                 progressRefs={progressRefs}
                 revealClass={revealClass}
+                isLogoAnimating={isLogoAnimating}
+                isLogoRevealed={isLogoRevealed}
+                isContainerTranslated={isContainerTranslated}
             />
         </>
     );
