@@ -22,5 +22,11 @@
         "brand": "Geico",
         "director": "Ben Weinstein",
         "src": "/videos/video4.mp4"
+    },
+    {
+        "title": "VRT",
+        "brand": "Boise",
+        "director": "Kailee McGee",
+        "src": "/videos/video5.mp4"
     }
 ]
