@@ -50,7 +50,7 @@ export default async function DirectorPage({ params }) {
     }
 
     return (
-        <div className="p-8 mt-60 min-h-dvh">
+        <div className="p-8 mt-60">
             <h1 className="text-3xl font-bold text-orange-400 uppercase">
                 {director.name}
             </h1>

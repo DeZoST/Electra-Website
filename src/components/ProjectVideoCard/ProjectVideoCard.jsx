@@ -12,6 +12,7 @@ export default function ProjectVideoCard({ title, client, image, muxID }) {
                     src={image}
                     alt={title}
                     fill
+                    priority
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
                 />
             </div>
