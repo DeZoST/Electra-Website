@@ -1,123 +1,111 @@
 {
     "Ze'ev Waismann": {
-        "role": "Founder",
         "name": "Ze'ev Waismann",
-        "email": "zwaismann@electrafilmworks.co",
-        "phone": "+1 (323) 540-1127",
         "projects": [
             {
                 "title": "Dust is Gold",
                 "client": "Ford",
                 "muxAssetId": "cuKCsiGI4zzK401024YMuBhoNE1qhBze01CmUar873MsWs",
-                "image": "/images/Thumbnails/Ford_Bronco.png"
+                "image": "/images/Thumbnails/zw/Ford_Bronco.png"
             },
             {
                 "title": "What Makes Us",
                 "client": "Geisinger",
                 "muxAssetId": "iIP02uQk01gBFvDG7GMVk9hfLQm9sENGkwhUeLcJ8VGWI",
-                "image": "/images/Thumbnails/Geisnger_What_Makes_Us.png"
+                "image": "/images/Thumbnails/zw/Geisnger_What_Makes_Us.png"
             },
             {
                 "title": "Experience Scottsdale",
                 "client": "Memoria",
                 "muxAssetId": "Not on MUX",
-                "image": "/images/Thumbnails/ES_Sunglobe.png"
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             },
             {
                 "title": "Temporary is Beautiful",
                 "client": "Kelly",
                 "muxAssetId": "Not on MUX",
-                "image": "/images/Thumbnails/kelly_temp_is_beautiful.png"
+                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
             }
         ]
     },
     "Lorenzo de Guia": {
-        "role": "Exec. Producer | Founder",
         "name": "Lorenzo de Guia",
-        "email": "tristan@electrafilmworks.com",
-        "phone": "+1 (323) 864-5568",
         "projects": [
             {
                 "title": "Get Gone",
                 "client": "Nike",
                 "muxAssetId": "02bd5RPi541yG1StmAxnYUdP000202kBE5kDpPMeLEu42mA",
-                "image": "/images/Thumbnails/nike_leeper.png"
+                "image": "/images/Thumbnails/lg/nike_leeper.png"
             },
             {
                 "title": "Thank You, Hockey",
                 "client": "NHL",
                 "muxAssetId": "v4ZamFnAE4vPm5w003oV18IPQxGAfJqzEaMMIZOUQmuk",
-                "image": "/images/Thumbnails/NHL_thank_you_hockey.png"
+                "image": "/images/Thumbnails/lg/NHL_thank_you_hockey.png"
             },
             {
                 "title": "The Agility of M",
                 "client": "BMW",
                 "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
-                "image": "/images/Thumbnails/bmw_the_agility_of_m.png"
+                "image": "/images/Thumbnails/lg/bmw_the_agility_of_m.png"
             }
         ]
     },
     "Anthony Garth": {
-        "role": "Executive Producer",
-        "name": "José A. Alvarez",
-        "email": "jose@electrafilmworks.com",
-        "phone": "+1 (323) 549-3901",
+        "name": "Anthony Garth",
         "projects": [
             {
                 "title": "Storm",
                 "client": "Ford Ranger",
                 "muxAssetId": "Not on MUX",
-                "image": "/images/Thumbnails/pure_michigan_detroit.png"
+                "image": "/images/Thumbnails/ag/pure_michigan_detroit.png"
             },
             {
                 "title": "Can We",
                 "client": "Corewell Health",
                 "muxAssetId": "Y7hlp7Hcf8ACwwGHw5fvQG8l00G8GEcFm02GYNcHWzeNY",
-                "image": "/images/Thumbnails/corewell_can_we.png"
+                "image": "/images/Thumbnails/ag/corewell_can_we.png"
             },
             {
                 "title": "Army Navy Family",
                 "client": "Chevrolet",
                 "muxAssetId": "Gtd701vW5tlzYZYOHD29saczqhK5702BO28CKiMjVPoLw",
-                "image": "/images/Thumbnails/chevrolet_army_navy_family.png"
+                "image": "/images/Thumbnails/ag/chevrolet_army_navy_family.png"
             },
             {
                 "title": "Detroit",
                 "client": "Pure Michigan",
                 "muxAssetId": "LFhHwSkTVLTQLzF3UtG00NHkftkIqnpbuLsWt01zh18lc",
-                "image": "/images/Thumbnails/pure_michigan_detroit.png"
+                "image": "/images/Thumbnails/ag/pure_michigan_detroit.png"
             }
         ]
     },
     "Ben Weinstein": {
-        "role": "Director | Founder",
-        "name": "Ilene Silberman",
-        "email": "silbermanpro@gmail.com",
-        "phone": "+1 (917) 880-6747",
+        "name": "Ben Weinstein",
         "projects": [
             {
                 "title": "Boy Band",
                 "client": "Geico",
                 "muxAssetId": "6X01GFoLJXANShDdE6QBqKptl016SNbVSA58Y4x6GIZug",
-                "image": "/images/Thumbnails/geico_pop_star.png"
+                "image": "/images/Thumbnails/bw/geico_pop_star.png"
             },
             {
                 "title": "Sweet Thursday",
                 "client": "Thursday Night Football",
                 "muxAssetId": "9B16R1f5KBMQZZoUZA02hY84lrB016N02MEv2bWEUy02dVg",
-                "image": "/images/Thumbnails/tnf_sweet_thursday.png"
+                "image": "/images/Thumbnails/bw/tnf_sweet_thursday.png"
             },
             {
                 "title": "The Case",
                 "client": "Tax Act",
                 "muxAssetId": "mjGjFm023zAsiFwRpSjRV01RZ01YorT00WZhd007lqd6QS4M",
-                "image": "/images/Thumbnails/tax_act_the_case.png"
+                "image": "/images/Thumbnails/bw/tax_act_the_case.png"
             },
             {
                 "title": "In The Know",
                 "client": "Subway",
                 "muxAssetId": "SdlFdTp6TrFrckoozhZVZtNKYvIt8YfrF00eM33bmnIA",
-                "image": "/images/Thumbnails/subway_in_the_know.png"
+                "image": "/images/Thumbnails/bw/subway_in_the_know.png"
             }
         ]
     }
