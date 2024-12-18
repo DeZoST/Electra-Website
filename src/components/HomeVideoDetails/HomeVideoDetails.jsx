@@ -8,44 +8,62 @@ function HomeVideoDetails({
     progressRefs,
     revealClass,
 }) {
-    const [isFadedIn, setIsFadedIn] = useState(false);
-    const [isTranslated, setIsTranslated] = useState(false);
+    const [isLogoAnimating, setIsLogoAnimating] = useState(false);
 
     useEffect(() => {
-        setIsFadedIn(true);
+        const handlePageReady = () => {
+            setIsLogoAnimating(true); // Trigger animation when page is ready
+        };
 
-        const translationTimeout = setTimeout(() => {
-            setIsTranslated(true);
-        }, 1000);
+        // Listen for the "pageReady" event
+        window.addEventListener("pageReady", handlePageReady);
 
-        return () => clearTimeout(translationTimeout);
+        return () => {
+            window.removeEventListener("pageReady", handlePageReady);
+        };
     }, []);
 
     return (
-        <div className="flex items-end justify-end w-full h-full overflow-hidden">
-            <ul
-                className={`relative grid grid-cols-3 grid-rows-2 p-12 text-sm ${revealClass}`}
-            >
-                <li className={`relative flex items-center justify-center p-5`}>
-                    <Image
-                        src="/images/Electra_White.svg"
-                        alt="Electra logo"
-                        width={320}
-                        height={85}
-                        loading="eager"
-                        priority
-                    />
+        <div className="flex items-end justify-end w-full h-full">
+            <ul className="grid grid-cols-3 grid-rows-2 p-12 text-sm">
+                {/* Logo */}
+                <li>
+                    <div
+                        className={`relative overflow-hidden flex items-center justify-center w-full h-full z-50 transition-all duration-1000 ease-in-out 
+                            ${
+                                isLogoAnimating
+                                    ? "relative top-0"
+                                    : "relative -top-[500%]"
+                            }`}
+                    >
+                        <Image
+                            className={`p-4 transition-transform duration-1000 ease-in-out 
+                                
+                                ${
+                                    isLogoAnimating
+                                        ? "translate-y-0"
+                                        : "translate-y-[110%]"
+                                }
+
+                                `}
+                            src="/images/Electra_White.svg"
+                            alt="Electra logo"
+                            width={320}
+                            height={85}
+                        />
+                    </div>
                 </li>
 
+                {/* Video List */}
                 {videos.map((video, index) => (
                     <li
                         key={index}
-                        className={`relative cursor-pointer transition-transform duration-300 min-w-80 p-5 ${
+                        className={`cursor-pointer transition-transform duration-300 min-w-80 p-4 ${revealClass} ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}
                     >
-                        <div className="relative">
+                        <div>
                             <h2 className="text-gray-300">
                                 {video.title}
                                 {" | "}
