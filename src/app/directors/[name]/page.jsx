@@ -65,7 +65,7 @@ export default async function DirectorPage({ params }) {
                                     title={project.title}
                                     client={project.client}
                                     image={project.image}
-                                    videoUrl={project.videoUrl}
+                                    muxID={project.muxAssetId}
                                 />
                             </li>
                         ))

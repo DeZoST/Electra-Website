@@ -1,8 +1,12 @@
 import Image from "next/image";
 
-export default function ProjectVideoCard({ title, client, image, videoUrl }) {
+export default function ProjectVideoCard({ title, client, image, muxID }) {
     return (
-        <div className="relative overflow-hidden group">
+        <div
+            className="relative overflow-hidden group"
+            key={muxID}
+            data-mux-id={muxID}
+        >
             <div className="relative w-full min-h-96">
                 <Image
                     src={image}
