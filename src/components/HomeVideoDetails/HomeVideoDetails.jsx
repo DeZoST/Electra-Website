@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 function HomeVideoDetails({
     videos,
@@ -29,11 +28,9 @@ function HomeVideoDetails({
                         }`}
                     >
                         <Image
-                            className={`p-4 transition-transform duration-1000 ease-in-out 
+                            className={`p-4 transition-opacity duration-1000 ease-in-out 
                                 ${
-                                    isLogoRevealed
-                                        ? "translate-y-0 opacity-100"
-                                        : "translate-y-[110%] opacity-0"
+                                    isLogoRevealed ? "opacity-100" : "opacity-0"
                                 }`}
                             src="/images/Electra_White.svg"
                             alt="Electra logo"
@@ -47,7 +44,7 @@ function HomeVideoDetails({
                 {videos.map((video, index) => (
                     <li
                         key={index}
-                        className={`cursor-pointer transition-transform duration-300 min-w-80 p-4 ${revealClass} ${
+                        className={`cursor-pointer min-w-80 p-4 ${revealClass} ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}
