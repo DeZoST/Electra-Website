@@ -62,9 +62,10 @@ function HomeVideoDetails({
 
                             <div className="relative w-full h-[1px] bg-white/20">
                                 <div
-                                    ref={(el) =>
-                                        (progressRefs.current[index] = el)
-                                    }
+                                    ref={(el) => {
+                                        if (el)
+                                            progressRefs.current[index] = el;
+                                    }}
                                     className="absolute top-0 left-0 h-full transition-all duration-300 bg-white"
                                 ></div>
                             </div>
