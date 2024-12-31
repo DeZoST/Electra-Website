@@ -25,6 +25,18 @@
                 "client": "Kelly",
                 "muxAssetId": "Not on MUX",
                 "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
+            },
+            {
+                "title": "Experience Scottsdale",
+                "client": "Memoria",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
+            },
+            {
+                "title": "Temporary is Beautiful",
+                "client": "Kelly",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
             }
         ]
     },
@@ -48,6 +60,24 @@
                 "client": "BMW",
                 "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
                 "image": "/images/Thumbnails/lg/bmw_the_agility_of_m.png"
+            },
+            {
+                "title": "Experience Scottsdale",
+                "client": "Memoria",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
+            },
+            {
+                "title": "Temporary is Beautiful",
+                "client": "Kelly",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
+            },
+            {
+                "title": "Experience Scottsdale",
+                "client": "Memoria",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             }
         ]
     },
@@ -77,6 +107,12 @@
                 "client": "Pure Michigan",
                 "muxAssetId": "LFhHwSkTVLTQLzF3UtG00NHkftkIqnpbuLsWt01zh18lc",
                 "image": "/images/Thumbnails/ag/pure_michigan_detroit.png"
+            },
+            {
+                "title": "Experience Scottsdale",
+                "client": "Memoria",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             }
         ]
     },
@@ -106,6 +142,18 @@
                 "client": "Subway",
                 "muxAssetId": "SdlFdTp6TrFrckoozhZVZtNKYvIt8YfrF00eM33bmnIA",
                 "image": "/images/Thumbnails/bw/subway_in_the_know.png"
+            },
+            {
+                "title": "Experience Scottsdale",
+                "client": "Memoria",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
+            },
+            {
+                "title": "Temporary is Beautiful",
+                "client": "Kelly",
+                "muxAssetId": "Not on MUX",
+                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
             }
         ]
     }
