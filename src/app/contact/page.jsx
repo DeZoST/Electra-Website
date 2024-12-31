@@ -31,7 +31,7 @@ async function Contact() {
                     className="object-contain w-full"
                     width={100}
                     height={100}
-                    src={"/images/Electra_Orange.svg"}
+                    src={"/images/Electra_White.svg"}
                     alt="Electra logo"
                     priority
                 />

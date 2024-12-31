@@ -13,7 +13,7 @@ function Header() {
     const [isLoading, setIsLoading] = useState(false);
     const [isFadingOut, setIsFadingOut] = useState(false); // For loader fade-out
     const [isOpen, setIsOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
     const pathname = usePathname();
     const router = useRouter();
     const revealClass = useRevealAnimation(true, "top");
@@ -64,12 +64,13 @@ function Header() {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-
     const getLinkClass = (href) =>
         pathname === href
             ? "text-white"
             : "opacity-50 hover:opacity-100 text-white";
+
+    const handleDropdownMouseEnter = () => setIsDropdownOpen(true);
+    const handleDropdownMouseLeave = () => setIsDropdownOpen(false);
 
     return (
         <header
@@ -89,11 +90,12 @@ function Header() {
             </TransitionLink>
             <nav>
                 <ul className="items-center hidden text-xs font-bold tracking-tight uppercase group lg:flex">
-                    <li className="relative hidden lg:block">
-                        <button
-                            className="flex items-center p-6 text-white uppercase transition-opacity duration-300 last:pr-6 hover:opacity-80"
-                            onClick={toggleDropdown}
-                        >
+                    <li
+                        className="relative hidden lg:block"
+                        onMouseEnter={handleDropdownMouseEnter}
+                        onMouseLeave={handleDropdownMouseLeave}
+                    >
+                        <button className="flex items-center p-6 text-white uppercase transition-opacity duration-300 last:pr-6 hover:opacity-80">
                             Directors
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +115,7 @@ function Header() {
                             </svg>
                         </button>
                         <ul
-                            className={`absolute z-50 w-48 p-4 text-sm rounded-md text-center -translate-x-1/2 left-1/2 transition-all duration-300 ease-in-out ${
+                            className={`absolute flex flex-col items-center z-50 w-fit p-4 text-sm rounded-md -translate-x-1/2 left-1/2 transition-all duration-300 ease-in-out ${
                                 isDropdownOpen
                                     ? "opacity-100 scale-100 translate-y-0"
                                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
@@ -122,11 +124,11 @@ function Header() {
                             {directors.map((director, index) => (
                                 <li
                                     key={index}
-                                    className="py-1 text-white cursor-pointer hover:text-gray-300"
+                                    className="w-full py-1 text-white cursor-pointer text-nowrap hover:text-gray-300"
                                 >
                                     <TransitionLink
                                         href={`/directors/${director}`}
-                                        className="transition-all duration-150"
+                                        className="w-full transition-all duration-150"
                                         onClick={() =>
                                             handleNavigation(
                                                 `/directors/${director}`
