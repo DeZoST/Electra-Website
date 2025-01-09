@@ -8,7 +8,7 @@ async function Contact() {
     const data = JSON.parse(fileContents);
 
     return (
-        <section className="flex flex-col items-center justify-center gap-8 px-8 text-sm lg:gap-12 lg:justify-evenly lg:flex-row min-h-dvh">
+        <section className="flex flex-col items-center justify-center gap-8 px-8 text-xs lg:justify-evenly lg:flex-row min-h-dvh">
             <ul className="flex flex-col gap-4 text-center">
                 <h2 className="font-bold text-white uppercase ">Staff.</h2>
                 {data.Staff.map((staff, index) => (
