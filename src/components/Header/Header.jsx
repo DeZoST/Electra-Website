@@ -48,7 +48,7 @@ function Header() {
         setIsFadingOut(false); // Reset fading state
 
         try {
-            await router.push(href);
+            router.push(href);
         } finally {
             fadeOutLoader();
         }

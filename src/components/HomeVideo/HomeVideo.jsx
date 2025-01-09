@@ -1,189 +1,85 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Loader from "../Loader/Loader.jsx";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import Loader from "../Loader/Loader";
 import useIsMobile from "../../hooks/useIsMobile";
 import useRevealAnimation from "../../hooks/useRevealAnimation";
-import HomeVideoDetails from "../HomeVideoDetails/HomeVideoDetails.jsx";
+import DesktopView from "./DesktopView";
+import MobileView from "./MobileView";
 
-function HomeVideo({ videos }) {
+function HomeVideo({ videos, openModal }) {
     const isMobile = useIsMobile();
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
-    const [isReadyToReveal, setIsReadyToReveal] = useState(false);
-    const [isLogoAnimating, setIsLogoAnimating] = useState(false);
-    const [isLogoRevealed, setIsLogoRevealed] = useState(false);
-    const [isContainerTranslated, setIsContainerTranslated] = useState(false);
-    const [isVideoReadyToPlay, setIsVideoReadyToPlay] = useState(false);
-    const [isTransitioning, setIsTransitioning] = useState(false);
+    const [isLogoVisible, setIsLogoVisible] = useState(false);
+    const [isLogoTranslated, setIsLogoTranslated] = useState(false);
+    const [isLoaderGone, setIsLoaderGone] = useState(false);
 
-    const videoRef = useRef(null);
     const progressRefs = useRef([]);
-    const readyCheckInterval = useRef(null);
+    const revealClass = useRevealAnimation(isLogoTranslated, "bottom");
 
-    const revealClass = useRevealAnimation(isReadyToReveal, "bottom");
+    const handleVideoChange = useCallback(
+        (index) => {
+            if (index === activeVideoIndex) return;
+            resetProgressBar(activeVideoIndex);
+            setActiveVideoIndex(index);
+        },
+        [activeVideoIndex]
+    );
 
-    const updateProgress = () => {
-        const video = videoRef.current;
-        if (video && progressRefs.current[activeVideoIndex]) {
-            const progress = (video.currentTime / video.duration) * 100 || 0;
-            progressRefs.current[activeVideoIndex].style.width = `${progress}%`;
-        }
-    };
-
-    const resetProgressBar = (index) => {
+    const resetProgressBar = useCallback((index) => {
         if (progressRefs.current[index]) {
             progressRefs.current[index].style.width = "0%";
         }
-    };
+    }, []);
 
-    const triggerLogoAnimationSequence = () => {
-        setTimeout(() => {
-            setIsLogoRevealed(true);
-
-            setTimeout(() => {
-                setIsLogoAnimating(true);
-
-                setTimeout(() => {
-                    setIsContainerTranslated(true);
-
-                    setTimeout(() => {
-                        setIsReadyToReveal(true);
-                        fadeOutLoader();
-                    }, 500);
-                }, 700);
-            }, 700);
-        }, 1000);
-    };
-
-    const fadeOutLoader = () => {
+    const fadeOutLoader = useCallback(() => {
         setIsFadingOut(true);
         setTimeout(() => {
             setIsLoading(false);
-            setIsVideoReadyToPlay(true);
+            setIsLoaderGone(true);
         }, 1000);
-    };
+    }, []);
 
-    const initializeVideoPlayback = () => {
-        const video = videoRef.current;
-        if (video) {
-            video
-                .play()
-                .catch((err) => console.warn("Play method failed: ", err));
-            readyCheckInterval.current = setInterval(() => {
-                if (video.readyState >= 3) {
-                    clearInterval(readyCheckInterval.current);
-                    triggerLogoAnimationSequence();
-                }
-            }, 100);
-
-            video.addEventListener("timeupdate", updateProgress);
-        }
-    };
-
-    useEffect(() => {
-        initializeVideoPlayback();
-
-        return () => {
-            const video = videoRef.current;
-            if (video) video.removeEventListener("timeupdate", updateProgress);
-            clearInterval(readyCheckInterval.current);
-        };
-    }, [activeVideoIndex]);
-
-    useEffect(() => {
-        resetProgressBar(activeVideoIndex);
-    }, [activeVideoIndex]);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (video) {
-            if (isVideoReadyToPlay) {
-                video.play().catch((err) => console.warn("Play failed:", err));
-            } else {
-                video.pause();
-            }
-        }
-    }, [isVideoReadyToPlay]);
-
-    const handleVideoChange = (index) => {
-        if (index === activeVideoIndex) return; // Skip resetting if the same video
-        setIsTransitioning(true); // Start transition
+    const triggerRevealSequence = useCallback(() => {
         setTimeout(() => {
-            resetProgressBar(activeVideoIndex); // Reset the previous video's progress bar
-            setActiveVideoIndex(index);
-            resetProgressBar(index); // Reset the new video's progress bar
-            setIsTransitioning(false); // End transition
-        }, 300); // Delay for the transition effect
-    };
+            setIsLogoVisible(true);
+            setTimeout(() => {
+                setIsLogoTranslated(true);
+                setTimeout(() => fadeOutLoader(), 1000);
+            }, 1000);
+        }, 500);
+    }, [fadeOutLoader]);
 
-    const renderDesktopView = () => (
-        <>
-            <figure
-                className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-                    isTransitioning ? "opacity-0" : "opacity-100"
-                }`}
-            >
-                <video
-                    ref={videoRef}
-                    src={videos[activeVideoIndex].src}
-                    preload="auto"
-                    autoPlay={false}
-                    loop={false}
-                    muted
-                    playsInline
-                    className="object-cover w-full h-full"
-                    onEnded={() =>
-                        handleVideoChange(
-                            (activeVideoIndex + 1) % videos.length
-                        )
-                    }
-                />
-            </figure>
-            <HomeVideoDetails
-                videos={videos}
-                activeVideoIndex={activeVideoIndex}
-                handleHover={handleVideoChange}
-                progressRefs={progressRefs}
-                revealClass={revealClass}
-                isLogoAnimating={isLogoAnimating}
-                isLogoRevealed={isLogoRevealed}
-                isContainerTranslated={isContainerTranslated}
-            />
-        </>
-    );
-
-    const renderMobileView = () => (
-        <div className="relative flex flex-col items-center justify-center w-full h-full">
-            <video
-                ref={videoRef}
-                src={videos[activeVideoIndex].src}
-                preload="auto"
-                autoPlay={false}
-                loop
-                muted
-                playsInline
-                className="w-full h-auto"
-            />
-            <div className="absolute flex flex-col items-center space-y-2 bottom-4">
-                <h1 className="text-lg text-white">
-                    {videos[activeVideoIndex].title}
-                </h1>
-                <p className="text-sm text-gray-300">
-                    {videos[activeVideoIndex].brand} |{" "}
-                    {videos[activeVideoIndex].director}
-                </p>
-            </div>
-        </div>
-    );
+    useEffect(() => {
+        triggerRevealSequence();
+    }, [triggerRevealSequence]);
 
     return (
         <section className="relative w-full h-screen">
             {isLoading && <Loader fadeOut={isFadingOut} />}
-            {isMobile ? renderMobileView() : renderDesktopView()}
+            {isMobile ? (
+                <MobileView
+                    videos={videos}
+                    activeVideoIndex={activeVideoIndex}
+                    openModal={openModal} // Pass to MobileView
+                />
+            ) : (
+                <DesktopView
+                    videos={videos}
+                    activeVideoIndex={activeVideoIndex}
+                    progressRefs={progressRefs}
+                    handleVideoChange={handleVideoChange}
+                    revealClass={revealClass}
+                    isLogoVisible={isLogoVisible}
+                    isLogoTranslated={isLogoTranslated}
+                    isLoaderGone={isLoaderGone}
+                    openModal={openModal} // Pass to DesktopView
+                />
+            )}
         </section>
     );
 }
 
-export default HomeVideo;
+export default React.memo(HomeVideo);

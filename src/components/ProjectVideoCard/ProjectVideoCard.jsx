@@ -26,7 +26,7 @@ export default function ProjectVideoCard({
                 />
             </div>
 
-            <div className="absolute bottom-0 left-0 flex items-center w-full gap-2 p-4 text-xs bg-black/30">
+            <div className="absolute bottom-0 left-0 flex items-center w-full gap-2 p-4 text-xs ">
                 <h3 className="text-gray-400 uppercase ">{title}</h3>
                 {client && " | "}
                 <p className="font-bold text-white ">

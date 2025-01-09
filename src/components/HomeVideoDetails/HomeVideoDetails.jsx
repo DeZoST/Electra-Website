@@ -6,9 +6,8 @@ function HomeVideoDetails({
     handleHover,
     progressRefs,
     revealClass,
-    isLogoAnimating,
-    isLogoRevealed,
-    isContainerTranslated,
+    isLogoVisible,
+    isLogoTranslated,
 }) {
     return (
         <div className="flex items-end justify-end w-full h-full">
@@ -16,22 +15,17 @@ function HomeVideoDetails({
                 {/* Logo */}
                 <li>
                     <div
-                        className={`overflow-hidden flex items-center justify-center w-full h-full z-50 transition-all duration-700 ease-in-out 
-                            ${
-                                isLogoAnimating
-                                    ? "relative top-0"
-                                    : "relative -top-[500%]"
-                            } ${
-                            isContainerTranslated
-                                ? "opacity-100 pointer-events-none"
-                                : ""
-                        }`}
+                        className={`overflow-hidden relative flex items-center justify-center w-full h-full transition-all ease-in-out ${
+                            isLogoTranslated ? "top-0" : "-top-[500%]"
+                        } `}
+                        style={{
+                            transition: `top 0.75s ease-in-out`,
+                        }}
                     >
                         <Image
-                            className={`p-4 transition-opacity duration-1000 ease-in-out 
-                                ${
-                                    isLogoRevealed ? "opacity-100" : "opacity-0"
-                                }`}
+                            className={`z-50 p-4 ${
+                                isLogoVisible ? "opacity-100" : "opacity-0"
+                            } transition-opacity duration-1000`}
                             src="/images/Electra_White.svg"
                             alt="Electra logo"
                             width={320}
@@ -43,7 +37,7 @@ function HomeVideoDetails({
                 {/* Video List */}
                 {videos.map((video, index) => (
                     <li
-                        key={index}
+                        key={video.id || index}
                         className={`cursor-pointer min-w-80 p-4 ${revealClass} ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
@@ -66,7 +60,7 @@ function HomeVideoDetails({
                                         if (el)
                                             progressRefs.current[index] = el;
                                     }}
-                                    className="absolute top-0 left-0 h-full transition-all duration-300 bg-white"
+                                    className="absolute top-0 left-0 h-full bg-white"
                                 ></div>
                             </div>
                         </div>
