@@ -23,8 +23,14 @@ const ProjectList = ({ jsonUrl }) => {
         ]);
     }, [projects]);
 
+    // Dynamically determine grid layout classes
+    const gridClass =
+        projects.length === 1
+            ? "grid-cols-1" // Single card takes full width
+            : "grid-cols-1 lg:grid-cols-2"; // Two columns for multiple cards
+
     return (
-        <ul className="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
+        <ul className={`grid gap-8 mt-8 ${gridClass}`}>
             {projects.map((project, index) => {
                 const isLastElement = index === projects.length - 1;
 
