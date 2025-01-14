@@ -38,7 +38,7 @@ function HomeVideoDetails({
                 {videos.map((video, index) => (
                     <li
                         key={video.id || index}
-                        className={`cursor-pointer min-w-80 p-4 ${revealClass} ${
+                        className={`cursor-pointer  p-4 ${revealClass} ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}
