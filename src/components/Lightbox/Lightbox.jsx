@@ -20,7 +20,7 @@ export default function Lightbox({ title, children, trigger }) {
 
             {/* Lightbox Modal */}
             {isOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75">
                     <div className="relative w-11/12 max-w-lg p-6 bg-white rounded-md shadow-lg">
                         {/* Close Button */}
                         <button
@@ -49,7 +49,9 @@ export default function Lightbox({ title, children, trigger }) {
                         </h2>
 
                         {/* Lightbox Content */}
-                        <div className="text-gray-600">{children}</div>
+                        <div className="text-xs font-normal text-gray-600 normal-case md:text-sm">
+                            {children}
+                        </div>
                     </div>
                 </div>
             )}
