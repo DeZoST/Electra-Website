@@ -21,7 +21,6 @@ export default function ProjectVideoCard({
                     alt={title}
                     height={400}
                     width={600}
-                    priority
                     className="object-cover w-full transition-transform duration-300 group-hover:scale-110"
                 />
             </div>
