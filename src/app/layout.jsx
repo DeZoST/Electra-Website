@@ -20,6 +20,8 @@ export const metadata = {
         type: "website",
         url: "https://electrafilmworks.com",
         title: "Electra FilmWorks",
+        locale: "en_US",
+        siteName: "Electra FilmWorks",
         description:
             "Electra Filmworks is a leading film production company that has set itself apart in the industry by creating compelling branded content and commercial work.",
         images: [
@@ -31,6 +33,7 @@ export const metadata = {
             },
         ],
     },
+    metadataBase: new URL("https://electra-website-dusky.vercel.app"),
 };
 
 export default function RootLayout({ children }) {
