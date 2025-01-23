@@ -6,7 +6,7 @@ function VideoPlayer({
     autoPlay = false,
     loop = false,
     muted = true,
-    progressRefs,
+    progressRefs = { current: [] }, // Default value for progressRefs
     activeVideoIndex,
     onEnded,
 }) {

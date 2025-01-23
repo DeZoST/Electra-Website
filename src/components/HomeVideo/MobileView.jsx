@@ -1,13 +1,15 @@
 import React from "react";
 import VideoPlayer from "./VideoPlayer";
 
-function MobileView({ videos, activeVideoIndex }) {
+function MobileView({ videos, activeVideoIndex, handleVideoChange }) {
     return (
         <div className="relative flex flex-col items-center justify-center w-full h-full">
             <VideoPlayer
                 videoSrc={videos[activeVideoIndex].src}
-                autoPlay={false}
-                loop
+                autoPlay
+                onEnded={() =>
+                    handleVideoChange((activeVideoIndex + 1) % videos.length)
+                }
             />
             <div className="absolute flex flex-col items-center space-y-2 bottom-4">
                 <h1 className="text-lg text-white">

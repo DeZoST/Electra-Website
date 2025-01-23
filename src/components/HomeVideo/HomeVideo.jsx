@@ -63,6 +63,7 @@ function HomeVideo({ videos, openModal }) {
                 <MobileView
                     videos={videos}
                     activeVideoIndex={activeVideoIndex}
+                    handleVideoChange={handleVideoChange}
                     openModal={openModal} // Pass to MobileView
                 />
             ) : (
