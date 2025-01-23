@@ -19,17 +19,17 @@ export default function ProjectVideoCard({
                 <Image
                     src={image}
                     alt={title}
-                    height={400}
-                    width={600}
+                    width={1280}
+                    height={720}
                     className="object-cover w-full transition-transform duration-300 group-hover:scale-110"
                 />
             </div>
 
-            <div className="absolute bottom-0 left-0 flex items-center w-full gap-2 p-4 text-xs ">
+            <div className="absolute bottom-0 left-0 flex items-center w-full gap-2 p-2 lg:p-4 text-[0.5rem] md:text-xs ">
                 <h3 className="text-gray-200 uppercase ">{title}</h3>
                 {client && " | "}
                 <p className="font-bold text-white ">
-                    {client} {director && `| Directed by ${director}`}
+                    {client} {director && `| ${director}`}
                 </p>
             </div>
         </div>

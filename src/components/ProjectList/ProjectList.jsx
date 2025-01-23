@@ -30,7 +30,7 @@ const ProjectList = ({ jsonUrl }) => {
             : "grid-cols-1 lg:grid-cols-2"; // Two columns for multiple cards
 
     return (
-        <ul className={`grid gap-8 mt-8 ${gridClass}`}>
+        <ul className={`grid gap-8 mt-4 md:mt-6 ${gridClass}`}>
             {projects.map((project, index) => {
                 const isLastElement = index === projects.length - 1;
 
