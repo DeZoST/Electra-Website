@@ -52,6 +52,12 @@ main {
     transition-duration: 300ms;
 }
 
+mux-player {
+    --live-button: none;
+    --seek-backward-button: none;
+    --seek-forward-button: none;
+}
+
 .page-transition {
     opacity: 0;
 }
