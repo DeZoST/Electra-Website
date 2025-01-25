@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
-import Lightbox from "@/components/Lightbox/Lightbox"; // Import the Lightbox component
+import Lightbox from "@/components/Lightbox/Lightbox"; // Import Lightbox
+import ProjectList from "@/components/ProjectList/ProjectList"; // Import the new ProjectList component
 
+// Fetch the director data (Server Component)
 export async function generateStaticParams() {
     const res = await fetch(
         "https://electra-website-dusky.vercel.app/data/directors.json"
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
     };
 }
 
+// Fetching director data during static generation
 export default async function DirectorPage({ params }) {
     const { name } = await params;
     const decodedName = decodeURIComponent(name).toLowerCase();
@@ -38,11 +39,10 @@ export default async function DirectorPage({ params }) {
         directorsNormalized[key.toLowerCase()] = directors[key];
     });
 
+    // Get the selected director data
     const director = directorsNormalized[decodedName];
 
     if (!director) {
-        console.log("Director not found for:", decodedName);
-        console.log("Available directors:", Object.keys(directorsNormalized));
         return (
             <div className="flex items-center justify-center text-white h-dvh">
                 <p>Director not found</p>
@@ -79,26 +79,11 @@ export default async function DirectorPage({ params }) {
                 </Lightbox>
             </h1>
 
-            <Suspense fallback={<div>Loading projects...</div>}>
-                <ul className="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
-                    {director.projects && director.projects.length > 0 ? (
-                        director.projects.map((project, index) => (
-                            <li key={index}>
-                                <ProjectVideoCard
-                                    title={project.title}
-                                    client={project.client}
-                                    image={project.image}
-                                    muxID={project.muxAssetId}
-                                />
-                            </li>
-                        ))
-                    ) : (
-                        <p className="text-white">
-                            No projects available for this director.
-                        </p>
-                    )}
-                </ul>
-            </Suspense>
+            {/* Pass only the director's projects */}
+            <ProjectList
+                projects={director.projects || []}
+            />
         </div>
     );
 }
+
