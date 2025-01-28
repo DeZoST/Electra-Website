@@ -1,15 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
-import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
-const ProjectList = ({ jsonUrl }) => {
-    const {
-        data: projects,
-        isLoading,
-        lastElementRef,
-    } = useInfiniteScroll(jsonUrl);
+const ProjectList = ({ projects }) => {
     const [loadedIndexes, setLoadedIndexes] = useState([]);
 
     useEffect(() => {
@@ -31,30 +25,24 @@ const ProjectList = ({ jsonUrl }) => {
 
     return (
         <ul className={`grid gap-8 mt-4 md:mt-6 ${gridClass}`}>
-            {projects.map((project, index) => {
-                const isLastElement = index === projects.length - 1;
-
-                return (
-                    <li
-                        key={index}
-                        ref={isLastElement ? lastElementRef : null}
-                        className={`transition-opacity duration-500 ${
-                            loadedIndexes.includes(index)
-                                ? "opacity-100"
-                                : "opacity-0"
-                        }`}
-                    >
-                        <ProjectVideoCard
-                            title={project.title}
-                            client={project.client}
-                            director={project.director || null}
-                            image={project.image}
-                            muxID={project.muxAssetId}
-                        />
-                    </li>
-                );
-            })}
-            {isLoading && <p>Loading more projects...</p>}
+            {projects.map((project, index) => (
+                <li
+                    key={index}
+                    className={`transition-opacity duration-500 ${
+                        loadedIndexes.includes(index)
+                            ? "opacity-100"
+                            : "opacity-0"
+                    }`}
+                >
+                    <ProjectVideoCard
+                        title={project.title}
+                        client={project.client}
+                        director={project.director || null}
+                        image={project.image}
+                        muxID={project.muxAssetId}
+                    />
+                </li>
+            ))}
         </ul>
     );
 };
