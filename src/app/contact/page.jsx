@@ -6,7 +6,9 @@ export default async function Contact() {
     let data = { Staff: [], Reps: [] };
 
     try {
-        const res = await fetch(jsonUrl, { cache: "no-store" });
+        const res = await fetch(jsonUrl, {
+            next: { revalidate: 3600 },
+        });
         data = await res.json();
     } catch (error) {
         console.error("Error fetching data:", error);

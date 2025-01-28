@@ -1,5 +1,5 @@
 export default async function fetchPaginatedData(jsonUrl) {
-    const res = await fetch(jsonUrl, { cache: "no-store" });
+    const res = await fetch(jsonUrl, { next: { revalidate: 3600 } });
     const data = await res.json();
 
     let projects = [];
