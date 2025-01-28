@@ -1,6 +1,5 @@
-import { Suspense } from "react";
-import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
-import Lightbox from "@/components/Lightbox/Lightbox"; // Import the Lightbox component
+import ProjectList from "@/components/ProjectList/ProjectList";
+import Lightbox from "@/components/Lightbox/Lightbox";
 
 export async function generateStaticParams() {
     const res = await fetch(
@@ -50,9 +49,14 @@ export default async function DirectorPage({ params }) {
         );
     }
 
+    const projects = director.projects.map((project) => ({
+        ...project,
+        director: director.name,
+    }));
+
     return (
-        <div className="p-8 mt-24 md:mt-48 lg:mt-60">
-            <h1 className="flex items-center gap-4 text-3xl font-bold text-orange-400 uppercase ">
+        <div className="p-4 mt-32 lg:p-8 lg:mt-60">
+            <h1 className="flex items-center gap-4 text-xl font-bold text-orange-400 uppercase md:text-3xl">
                 {director.name}
                 <Lightbox
                     title={`${director.name} - Biography`}
@@ -78,27 +82,7 @@ export default async function DirectorPage({ params }) {
                     <p>{director.bio}</p>
                 </Lightbox>
             </h1>
-
-            <Suspense fallback={<div>Loading projects...</div>}>
-                <ul className="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
-                    {director.projects && director.projects.length > 0 ? (
-                        director.projects.map((project, index) => (
-                            <li key={index}>
-                                <ProjectVideoCard
-                                    title={project.title}
-                                    client={project.client}
-                                    image={project.image}
-                                    muxID={project.muxAssetId}
-                                />
-                            </li>
-                        ))
-                    ) : (
-                        <p className="text-white">
-                            No projects available for this director.
-                        </p>
-                    )}
-                </ul>
-            </Suspense>
+            <ProjectList projects={projects} />
         </div>
     );
 }
