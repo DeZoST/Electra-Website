@@ -40,6 +40,7 @@ export default async function Contact() {
                     height={100}
                     src={"/images/Electra_White.svg"}
                     alt="Electra logo"
+                    priority
                 />
             </div>
 

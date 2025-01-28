@@ -57,6 +57,7 @@ const ProjectList = ({ projects }) => {
                             onClick={() =>
                                 handleOpenModal(project.muxPlaybackId)
                             }
+                            priority={index === 0}
                         />
                     </li>
                 ))}

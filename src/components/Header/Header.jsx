@@ -102,6 +102,7 @@ function Header() {
                         width={32}
                         height={53}
                         style={{ width: "32px", height: "53px" }}
+                        priority
                     />
                 </TransitionLink>
                 <nav>

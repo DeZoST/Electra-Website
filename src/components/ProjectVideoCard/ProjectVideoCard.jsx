@@ -12,7 +12,7 @@ export default function ProjectVideoCard({
 }) {
     return (
         <div
-            className="relative overflow-hidden group cursor-pointer"
+            className="relative overflow-hidden cursor-pointer group"
             onClick={onClick}
             data-mux-id={muxID}
         >
@@ -20,8 +20,9 @@ export default function ProjectVideoCard({
                 <Image
                     src={image}
                     alt={title}
-                    width={1280}
-                    height={720}
+                    width={600}
+                    height={400}
+                    priority={priority}
                     className="object-cover w-full transition-transform duration-300 group-hover:scale-110"
                 />
             </div>
