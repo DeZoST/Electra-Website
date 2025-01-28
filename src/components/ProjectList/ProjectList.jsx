@@ -53,8 +53,10 @@ const ProjectList = ({ projects }) => {
                             client={project.client}
                             director={project.director || null}
                             image={project.image}
-                            muxID={project.muxAssetId}
-                            onClick={() => handleOpenModal(project.muxAssetId)}
+                            muxID={project.muxPlaybackId}
+                            onClick={() =>
+                                handleOpenModal(project.muxPlaybackId)
+                            }
                         />
                     </li>
                 ))}
