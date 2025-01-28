@@ -9,6 +9,7 @@ export default function ProjectVideoCard({
     image,
     muxID,
     onClick,
+    priority,
 }) {
     return (
         <div
