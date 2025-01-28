@@ -10,6 +10,7 @@ import MobileView from "./MobileView";
 function HomeVideo({ videos, openModal }) {
     const isMobile = useIsMobile();
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
     const [isLogoVisible, setIsLogoVisible] = useState(false);
@@ -53,7 +54,20 @@ function HomeVideo({ videos, openModal }) {
     }, [fadeOutLoader]);
 
     useEffect(() => {
-        triggerRevealSequence();
+        if (typeof window !== "undefined") {
+            const hasVisitedHomePage =
+                sessionStorage.getItem("hasVisitedHomePage");
+
+            if (!hasVisitedHomePage) {
+                triggerRevealSequence();
+                sessionStorage.setItem("hasVisitedHomePage", "true");
+            } else {
+                setIsLogoVisible(true);
+                setIsLogoTranslated(true);
+                setIsLoading(false);
+                setIsLoaderGone(true);
+            }
+        }
     }, [triggerRevealSequence]);
 
     return (
