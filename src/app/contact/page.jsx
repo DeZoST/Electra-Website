@@ -1,16 +1,21 @@
 import Image from "next/image";
-import { promises as fs } from "fs";
-import path from "path";
 
-async function Contact() {
-    const filePath = path.join(process.cwd(), "public/data/staff_list.json");
-    const fileContents = await fs.readFile(filePath, "utf8");
-    const data = JSON.parse(fileContents);
+export default async function Contact() {
+    const jsonUrl =
+        "https://electra-website-dusky.vercel.app/data/staff_list.json";
+    let data = { Staff: [], Reps: [] };
+
+    try {
+        const res = await fetch(jsonUrl, { cache: "no-store" });
+        data = await res.json();
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 
     return (
         <section className="flex flex-col items-center justify-center gap-8 px-8 text-xs lg:justify-evenly lg:flex-row min-h-dvh">
             <ul className="flex flex-col gap-4 text-center">
-                <h2 className="font-bold text-white uppercase ">Staff.</h2>
+                <h2 className="font-bold text-white uppercase">Staff.</h2>
                 {data.Staff.map((staff, index) => (
                     <li key={index}>
                         <ul className="text-gray-400">
@@ -37,7 +42,7 @@ async function Contact() {
             </div>
 
             <ul className="flex flex-col gap-4 text-center">
-                <h2 className="font-bold text-white uppercase ">Reps.</h2>
+                <h2 className="font-bold text-white uppercase">Reps.</h2>
                 {data.Reps.map((rep, index) => (
                     <li key={index}>
                         <ul className="text-gray-400">
@@ -54,5 +59,3 @@ async function Contact() {
         </section>
     );
 }
-
-export default Contact;
