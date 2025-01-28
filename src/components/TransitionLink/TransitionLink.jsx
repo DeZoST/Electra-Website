@@ -1,26 +1,48 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const TransitionLink = ({ children, href, ...props }) => {
     const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        if (isTransitioning) {
+            const main = document.querySelector("main");
+            if (main) {
+                main.classList.remove("page-transition");
+            }
+            setIsTransitioning(false);
+        }
+    }, [pathname, searchParams]);
 
     const handleTransition = async (e) => {
         e.preventDefault();
         const main = document.querySelector("main");
 
-        main?.classList.add("page-transition");
+        if (main) {
+            main.classList.add("page-transition");
+        }
 
-        await sleep(300);
+        setIsTransitioning(true);
+
+        // Check if the current pathname matches the href
+        if (pathname === href) {
+            console.log("Already on the same page, resetting transition.");
+            if (main) {
+                main.classList.remove("page-transition");
+            }
+            setIsTransitioning(false);
+            return;
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
         router.push(href);
-        await sleep(300);
-
-        main?.classList.remove("page-transition");
     };
 
     return (
