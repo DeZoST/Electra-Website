@@ -1,4 +1,4 @@
-export default async function fetchPaginatedData(jsonUrl, page, limit) {
+export default async function fetchPaginatedData(jsonUrl) {
     const res = await fetch(jsonUrl, { cache: "no-store" });
     const data = await res.json();
 
@@ -20,10 +20,5 @@ export default async function fetchPaginatedData(jsonUrl, page, limit) {
         }));
     }
 
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-
-    const paginatedProjects = projects.slice(startIndex, endIndex);
-
-    return paginatedProjects;
+    return projects;
 }
