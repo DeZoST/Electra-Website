@@ -68,6 +68,7 @@
                 "title": "The Agility of M",
                 "client": "BMW",
                 "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
+                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/lg/bmw_the_agility_of_m.png"
             },
             {
@@ -174,7 +175,8 @@
             {
                 "title": "Dog",
                 "client": "Clear",
-                "muxAssetId": "Not on MUX",
+                "muxAssetId": "9B16R1f5KBMQZZoUZA02hY84lrB016N02MEv2bWEUy02dVg",
+                "muxPlaybackId": "PT02ecDeoihLhjtMD01YvEsVdJA1GAwWaWvAWUSHgMwlo",
                 "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             },
             {

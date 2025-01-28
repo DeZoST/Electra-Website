@@ -8,11 +8,12 @@ export default function ProjectVideoCard({
     director,
     image,
     muxID,
+    onClick,
 }) {
     return (
         <div
-            className="relative overflow-hidden group"
-            key={muxID}
+            className="relative overflow-hidden group cursor-pointer"
+            onClick={onClick}
             data-mux-id={muxID}
         >
             <div className="relative w-full h-full">
