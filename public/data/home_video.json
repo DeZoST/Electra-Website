@@ -3,30 +3,35 @@
         "title": "DUST IS GOLD",
         "brand": "Ford",
         "director": "Ze'ev Waismann",
-        "src": "/videos/video1.mp4"
+        "src": "/videos/video1.mp4",
+        "muxPlaybackId": "XdvyCtxC01GgLyKOlSNmhitkhmZgk9L402S6DQPf7bonY"
     },
     {
         "title": "Driven",
         "brand": "BMW",
         "director": "Lorenzo de Guia",
-        "src": "/videos/video2.mp4"
+        "src": "/videos/video2.mp4",
+        "muxPlaybackId": "I9fBzWVzFD9TrsZaXd00ScUxJmppLJ4Z02IptYEPo9vvc"
     },
     {
         "title": "Storm",
         "brand": "Ford",
         "director": "Anthony Garth",
-        "src": "/videos/video3.mp4"
+        "src": "/videos/video3.mp4",
+        "muxPlaybackId": "RvG9302MShMspvXDXxjEOO1Moypf6ebBJvu8ZyRVvNmc"
     },
     {
         "title": "Pop Star",
         "brand": "Geico",
         "director": "Ben Weinstein",
-        "src": "/videos/video4.mp4"
+        "src": "/videos/video4.mp4",
+        "muxPlaybackId": "oV02irniUNdfGff7eKifCRxYQTbRwaWEtV2WlL01f9Pbs"
     },
     {
         "title": "Let’s Ride BOI",
         "brand": "VRT",
         "director": "Kailee McGee",
-        "src": "/videos/video5.mp4"
+        "src": "/videos/video5.mp4",
+        "muxPlaybackId": "oV02irniUNdfGff7eKifCRxYQTbRwaWEtV2WlL01f9Pbs"
     }
 ]
