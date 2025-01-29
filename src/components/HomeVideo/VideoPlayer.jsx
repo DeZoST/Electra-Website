@@ -6,9 +6,10 @@ function VideoPlayer({
     autoPlay = false,
     loop = false,
     muted = true,
-    progressRefs = { current: [] }, // Default value for progressRefs
+    progressRefs = { current: [] },
     activeVideoIndex,
     onEnded,
+    onClick,
 }) {
     const videoRef = useRef(null);
     const { startProgressUpdate, stopProgressUpdate, resetProgressBar } =
@@ -21,10 +22,10 @@ function VideoPlayer({
         const handlePlay = async () => {
             try {
                 video.muted = muted;
-                resetProgressBar(activeVideoIndex); // Reset progress bar on play
+                resetProgressBar(activeVideoIndex);
                 await video.play();
                 console.log("Video is playing");
-                startProgressUpdate(); // Start updating progress
+                startProgressUpdate();
             } catch (err) {
                 console.warn("Error playing video:", err);
             }
@@ -33,8 +34,6 @@ function VideoPlayer({
         if (autoPlay) {
             handlePlay();
         }
-
-        // Stop updates and reset progress bar when video changes
         return () => {
             stopProgressUpdate();
             resetProgressBar(activeVideoIndex);
@@ -50,7 +49,10 @@ function VideoPlayer({
     ]);
 
     return (
-        <figure className="absolute top-0 left-0 w-full h-full">
+        <figure
+            className="absolute top-0 left-0 w-full h-full cursor-pointer"
+            onClick={onClick}
+        >
             <video
                 ref={videoRef}
                 src={videoSrc}

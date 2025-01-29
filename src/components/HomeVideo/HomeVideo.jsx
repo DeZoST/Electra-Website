@@ -6,8 +6,9 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useRevealAnimation from "../../hooks/useRevealAnimation";
 import DesktopView from "./DesktopView";
 import MobileView from "./MobileView";
+import VideoModal from "../VideoModal/VideoModal";
 
-function HomeVideo({ videos, openModal }) {
+function HomeVideo({ videos }) {
     const isMobile = useIsMobile();
     const [activeVideoIndex, setActiveVideoIndex] = useState(0);
 
@@ -16,6 +17,9 @@ function HomeVideo({ videos, openModal }) {
     const [isLogoVisible, setIsLogoVisible] = useState(false);
     const [isLogoTranslated, setIsLogoTranslated] = useState(false);
     const [isLoaderGone, setIsLoaderGone] = useState(false);
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [currentPlaybackId, setCurrentPlaybackId] = useState(null);
 
     const progressRefs = useRef([]);
     const revealClass = useRevealAnimation(isLogoTranslated, "bottom");
@@ -70,6 +74,16 @@ function HomeVideo({ videos, openModal }) {
         }
     }, [triggerRevealSequence]);
 
+    const handleOpenModal = (muxID) => {
+        setCurrentPlaybackId(muxID);
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setCurrentPlaybackId(null);
+        setModalOpen(false);
+    };
+
     return (
         <section className="relative w-full h-screen">
             {isLoading && <Loader fadeOut={isFadingOut} />}
@@ -78,7 +92,7 @@ function HomeVideo({ videos, openModal }) {
                     videos={videos}
                     activeVideoIndex={activeVideoIndex}
                     handleVideoChange={handleVideoChange}
-                    openModal={openModal} // Pass to MobileView
+                    openModal={handleOpenModal}
                 />
             ) : (
                 <DesktopView
@@ -89,10 +103,14 @@ function HomeVideo({ videos, openModal }) {
                     revealClass={revealClass}
                     isLogoVisible={isLogoVisible}
                     isLogoTranslated={isLogoTranslated}
-                    isLoaderGone={isLoaderGone}
-                    openModal={openModal} // Pass to DesktopView
+                    openModal={handleOpenModal}
                 />
             )}
+            <VideoModal
+                isOpen={modalOpen}
+                playbackId={currentPlaybackId}
+                onClose={handleCloseModal}
+            />
         </section>
     );
 }

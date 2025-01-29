@@ -1,7 +1,12 @@
 import React from "react";
 import VideoPlayer from "./VideoPlayer";
 
-function MobileView({ videos, activeVideoIndex, handleVideoChange }) {
+function MobileView({
+    videos,
+    activeVideoIndex,
+    handleVideoChange,
+    openModal,
+}) {
     return (
         <div className="relative flex flex-col items-center justify-center w-full h-full">
             <VideoPlayer
@@ -9,6 +14,9 @@ function MobileView({ videos, activeVideoIndex, handleVideoChange }) {
                 autoPlay
                 onEnded={() =>
                     handleVideoChange((activeVideoIndex + 1) % videos.length)
+                }
+                onClick={() =>
+                    openModal(videos[activeVideoIndex].muxPlaybackId)
                 }
             />
             <div className="absolute flex flex-col items-center space-y-2 bottom-4">

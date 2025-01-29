@@ -8,11 +8,11 @@ function HomeVideoDetails({
     revealClass,
     isLogoVisible,
     isLogoTranslated,
+    openModal,
 }) {
     return (
         <div className="flex items-end justify-end w-full h-full">
             <ul className="grid grid-cols-3 grid-rows-2 p-12 text-sm">
-                {/* Logo */}
                 <li>
                     <div
                         className={`overflow-hidden relative flex items-center justify-center w-full h-full transition-all ease-in-out ${
@@ -35,7 +35,6 @@ function HomeVideoDetails({
                     </div>
                 </li>
 
-                {/* Video List */}
                 {videos.map((video, index) => (
                     <li
                         key={video.id || index}
@@ -43,6 +42,7 @@ function HomeVideoDetails({
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}
+                        onClick={() => openModal(video.muxPlaybackId)}
                     >
                         <div>
                             <h2 className="text-gray-300">
