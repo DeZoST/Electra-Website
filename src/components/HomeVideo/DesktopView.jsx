@@ -1,6 +1,14 @@
 import React from "react";
-import VideoPlayer from "./VideoPlayer";
-import HomeVideoDetails from "../HomeVideoDetails/HomeVideoDetails";
+import dynamic from "next/dynamic";
+import HomeVideoDetails from "@/components/HomeVideoDetails/HomeVideoDetails";
+
+const VideoPlayer = dynamic(
+    () => import("@/components/HomeVideo/VideoPlayer"),
+    {
+        ssr: false,
+        loading: () => <p>Loading...</p>,
+    }
+);
 
 function DesktopView({
     videos,

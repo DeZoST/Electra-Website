@@ -1,5 +1,10 @@
 import ProjectList from "@/components/ProjectList/ProjectList";
-import Lightbox from "@/components/Lightbox/Lightbox";
+import dynamic from "next/dynamic";
+
+const Lightbox = dynamic(() => import("@/components/Lightbox/Lightbox"), {
+    ssr: true,
+    loading: () => <div>Loading...</div>,
+});
 
 export async function generateStaticParams() {
     const res = await fetch(

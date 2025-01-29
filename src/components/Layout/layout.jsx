@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Header from "../Header/Header";
+import Header from "@/components/Header/Header";
 
 function Layout({ children }) {
     return (

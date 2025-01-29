@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { TransitionLink } from "../TransitionLink/TransitionLink";
+import { TransitionLink } from "@/components/TransitionLink/TransitionLink";
 import { usePathname, useRouter } from "next/navigation";
-import useRevealAnimation from "../../hooks/useRevealAnimation";
+import useRevealAnimation from "@/hooks/useRevealAnimation";
 import Head from "next/head";
 
 function Header() {

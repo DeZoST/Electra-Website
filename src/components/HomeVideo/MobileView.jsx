@@ -1,5 +1,13 @@
 import React from "react";
-import VideoPlayer from "./VideoPlayer";
+import dynamic from "next/dynamic";
+
+const VideoPlayer = dynamic(
+    () => import("@/components/HomeVideo/VideoPlayer"),
+    {
+        ssr: false,
+        loading: () => <p>Loading...</p>,
+    }
+);
 
 function MobileView({
     videos,

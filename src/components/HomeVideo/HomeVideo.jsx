@@ -1,12 +1,18 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import Loader from "../Loader/Loader";
-import useIsMobile from "../../hooks/useIsMobile";
-import useRevealAnimation from "../../hooks/useRevealAnimation";
-import DesktopView from "./DesktopView";
-import MobileView from "./MobileView";
-import VideoModal from "../VideoModal/VideoModal";
+import useIsMobile from "@/hooks/useIsMobile";
+import useRevealAnimation from "@/hooks/useRevealAnimation";
+import DesktopView from "@/components/HomeVideo/DesktopView";
+import MobileView from "@/components/HomeVideo/MobileView";
+import dynamic from "next/dynamic";
+
+const VideoModal = dynamic(() => import("@/components/VideoModal/VideoModal"), {
+    ssr: false,
+});
+const Loader = dynamic(() => import("@/components/Loader/Loader"), {
+    ssr: false,
+});
 
 function HomeVideo({ videos }) {
     const isMobile = useIsMobile();

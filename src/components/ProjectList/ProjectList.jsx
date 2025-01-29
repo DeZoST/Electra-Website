@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import ProjectVideoCard from "@/components/ProjectVideoCard/ProjectVideoCard";
-import VideoModal from "@/components/VideoModal/VideoModal";
+import dynamic from "next/dynamic";
+
+const VideoModal = dynamic(() => import("@/components/VideoModal/VideoModal"), {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+});
 
 const ProjectList = ({ projects }) => {
     const [loadedIndexes, setLoadedIndexes] = useState([]);

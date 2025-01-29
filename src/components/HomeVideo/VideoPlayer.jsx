@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import useProgressBar from "../../hooks/useProgressBar";
+import useProgressBar from "@/hooks/useProgressBar";
 
 function VideoPlayer({
     videoSrc,
