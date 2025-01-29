@@ -1,4 +1,5 @@
-"use client";
+{
+    /*"use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import fetchPaginatedData from "@/utils/fetchPaginatedData";
@@ -71,3 +72,5 @@ export const useInfiniteScroll = (jsonUrl, limit = 24) => {
 
     return { data, isLoading, hasMore, lastElementRef };
 };
+*/
+}
