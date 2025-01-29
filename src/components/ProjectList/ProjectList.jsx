@@ -10,7 +10,6 @@ const ProjectList = ({ projects }) => {
     const [currentPlaybackId, setCurrentPlaybackId] = useState(null);
 
     useEffect(() => {
-        // Mark new projects as "loaded" for transitions
         setLoadedIndexes((prevIndexes) => [
             ...prevIndexes,
             ...Array.from(
@@ -30,11 +29,8 @@ const ProjectList = ({ projects }) => {
         setModalOpen(false);
     };
 
-    // Dynamically determine grid layout classes
     const gridClass =
-        projects.length === 1
-            ? "grid-cols-1" // Single card takes full width
-            : "grid-cols-1 lg:grid-cols-2"; // Two columns for multiple cards
+        projects.length === 1 ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-2";
 
     return (
         <>
@@ -46,7 +42,7 @@ const ProjectList = ({ projects }) => {
                             loadedIndexes.includes(index)
                                 ? "opacity-100"
                                 : "opacity-0"
-                        }`}
+                        } ${projects.length === 1 ? "w-full" : ""}`}
                     >
                         <ProjectVideoCard
                             title={project.title}
@@ -58,6 +54,7 @@ const ProjectList = ({ projects }) => {
                                 handleOpenModal(project.muxPlaybackId)
                             }
                             priority={index === 0}
+                            isSingle={projects.length === 1} // Pass isSingle prop
                         />
                     </li>
                 ))}
