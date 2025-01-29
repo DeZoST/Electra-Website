@@ -1,4 +1,3 @@
-// Home.jsx
 import HomeVideo from "@/components/HomeVideo/HomeVideo";
 
 export const revalidate = 3600;

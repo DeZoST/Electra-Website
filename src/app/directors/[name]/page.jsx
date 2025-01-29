@@ -1,7 +1,6 @@
 import ProjectList from "@/components/ProjectList/ProjectList";
 import Lightbox from "@/components/Lightbox/Lightbox";
 
-// Fetch the director data (Server Component)
 export async function generateStaticParams() {
     const res = await fetch(
         "https://electra-website-dusky.vercel.app/data/directors.json"
@@ -21,25 +20,21 @@ export async function generateMetadata({ params }) {
     };
 }
 
-// Fetching director data during static generation
 export default async function DirectorPage({ params }) {
     const { name } = await params;
     const decodedName = decodeURIComponent(name).toLowerCase();
 
-    // Fetch the directors data
     const res = await fetch(
         "https://electra-website-dusky.vercel.app/data/directors.json",
-        { cache: "no-store" } // Prevent caching issues
+        { cache: "no-store" }
     );
     const directors = await res.json();
 
-    // Normalize the director names
     const directorsNormalized = {};
     Object.keys(directors).forEach((key) => {
         directorsNormalized[key.toLowerCase()] = directors[key];
     });
 
-    // Get the selected director data
     const director = directorsNormalized[decodedName];
 
     if (!director) {

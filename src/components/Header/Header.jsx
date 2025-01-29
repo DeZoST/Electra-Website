@@ -11,14 +11,13 @@ function Header() {
     const [navLinks, setNavLinks] = useState([]);
     const [directors, setDirectors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [isFadingOut, setIsFadingOut] = useState(false); // For loader fade-out
+    const [isFadingOut, setIsFadingOut] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
     const revealClass = useRevealAnimation(true, "top");
 
-    // Fetch navigation data on mount
     useEffect(() => {
         async function fetchNavData() {
             try {
@@ -42,10 +41,9 @@ function Header() {
         fetchNavData();
     }, []);
 
-    // Navigation logic with loader fade-out
     const handleNavigation = async (href) => {
-        setIsLoading(true); // Show loader
-        setIsFadingOut(false); // Reset fading state
+        setIsLoading(true);
+        setIsFadingOut(false);
 
         try {
             router.push(href);
@@ -55,11 +53,11 @@ function Header() {
     };
 
     const fadeOutLoader = () => {
-        setIsFadingOut(true); // Trigger fade-out animation
+        setIsFadingOut(true);
         setTimeout(() => {
-            setIsLoading(false); // Remove loader after animation
-            window.dispatchEvent(new CustomEvent("pageReady")); // Optional: notify other components
-        }, 1000); // Match this timeout to your fade-out CSS duration
+            setIsLoading(false);
+            window.dispatchEvent(new CustomEvent("pageReady"));
+        }, 1000);
     };
 
     const toggleMenu = () => setIsOpen(!isOpen);

@@ -30,7 +30,6 @@ export const TransitionLink = ({ children, href, ...props }) => {
 
         setIsTransitioning(true);
 
-        // Check if the current pathname matches the href
         if (pathname === href) {
             console.log("Already on the same page, resetting transition.");
             if (main) {

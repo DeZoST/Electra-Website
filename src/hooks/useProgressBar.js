@@ -18,7 +18,6 @@ function useProgressBar(videoRef, activeVideoIndex, progressRefs) {
             const progress = (video.currentTime / video.duration) * 100 || 0;
             progressRefs.current[activeVideoIndex].style.width = `${progress}%`;
 
-            // Schedule the next update
             animationFrameId.current = requestAnimationFrame(updateProgress);
         }
     }, [activeVideoIndex, videoRef, progressRefs]);
@@ -31,8 +30,8 @@ function useProgressBar(videoRef, activeVideoIndex, progressRefs) {
     }, []);
 
     const startProgressUpdate = useCallback(() => {
-        stopProgressUpdate(); // Stop any ongoing updates
-        resetProgressBar(activeVideoIndex); // Ensure the progress bar is reset
+        stopProgressUpdate();
+        resetProgressBar(activeVideoIndex);
         animationFrameId.current = requestAnimationFrame(updateProgress);
     }, [
         updateProgress,
