@@ -35,11 +35,15 @@ const ProjectList = ({ projects }) => {
     };
 
     const gridClass =
-        projects.length === 1 ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-2";
+        projects.length === 1
+            ? "grid-cols-1"
+            : "grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3";
 
     return (
         <>
-            <ul className={`grid gap-8 mt-4 md:mt-6 ${gridClass}`}>
+            <ul
+                className={`grid gap-8 mt-4 md:mt-6 ${gridClass} max-w-screen-[2000px] mx-auto`}
+            >
                 {projects.map((project, index) => (
                     <li
                         key={index}
@@ -47,7 +51,7 @@ const ProjectList = ({ projects }) => {
                             loadedIndexes.includes(index)
                                 ? "opacity-100"
                                 : "opacity-0"
-                        } ${projects.length === 1 ? "w-full" : ""}`}
+                        } ${projects.length === 1 ? "w-full" : "w-fit"}`}
                     >
                         <ProjectVideoCard
                             title={project.title}
