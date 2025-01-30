@@ -21,7 +21,7 @@ const VideoModal = ({ isOpen, playbackId, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-            <div className="relative w-9/12">
+            <div className="relative w-11/12 lg:w-10/12">
                 <button
                     className="absolute z-50 text-xl text-white transition-colors right-2 md:text-2xl lg:text-4xl hover:text-orange-400"
                     onClick={onClose}
