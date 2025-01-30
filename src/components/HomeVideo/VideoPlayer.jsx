@@ -31,10 +31,18 @@ function VideoPlayer({
             }
         };
 
+        const handleEnded = () => {
+            if (onEnded) onEnded();
+        };
+
+        video.addEventListener("ended", handleEnded);
+
         if (autoPlay) {
             handlePlay();
         }
+
         return () => {
+            video.removeEventListener("ended", handleEnded);
             stopProgressUpdate();
             resetProgressBar(activeVideoIndex);
         };
@@ -43,28 +51,21 @@ function VideoPlayer({
         autoPlay,
         muted,
         activeVideoIndex,
+        resetProgressBar,
         startProgressUpdate,
         stopProgressUpdate,
-        resetProgressBar,
+        onEnded,
     ]);
 
     return (
-        <figure
-            className="absolute top-0 left-0 w-full h-full cursor-pointer"
+        <video
+            ref={videoRef}
+            src={videoSrc}
+            loop={loop}
             onClick={onClick}
-        >
-            <video
-                ref={videoRef}
-                src={videoSrc}
-                loop={loop}
-                muted={muted}
-                playsInline
-                preload="auto"
-                className="object-cover w-full h-full"
-                onEnded={onEnded}
-            />
-        </figure>
+            className="absolute top-0 left-0 object-cover h-full cursor-pointer -full"
+        />
     );
 }
 
-export default React.memo(VideoPlayer);
+export default VideoPlayer;
