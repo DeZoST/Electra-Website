@@ -72,7 +72,7 @@ function HomeVideo({ videos }) {
     }, [triggerRevealSequence]);
 
     return (
-        <section className="relative w-full h-dvh">
+        <section className="relative w-full overflow-hidden h-dvh">
             {isLoading && <Loader fadeOut={isFadingOut} />}
             <VideoModalHandler>
                 {({ handleOpenModal }) => (
