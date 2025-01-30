@@ -49,7 +49,7 @@ export default function ProjectVideoCard({
                     width={800}
                     height={450}
                     priority={priority}
-                    className={`object-cover w-full transition-transform duration-300 group-hover:scale-110 ${
+                    className={`object-cover transition-transform duration-300 group-hover:scale-110 ${
                         isHovered ? "opacity-0" : "opacity-100"
                     }`}
                 />
