@@ -1,15 +1,7 @@
 [
     {
-        "name": "Narrative",
-        "href": "/narrative"
-    },
-    {
-        "name": "Commercials",
-        "href": "/commercials"
-    },
-    {
-        "name": "Photography",
-        "href": "/photography"
+        "name": "Work",
+        "href": "/work"
     },
     {
         "name": "Contact",

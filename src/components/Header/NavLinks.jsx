@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { TransitionLink } from "@/components/TransitionLink/TransitionLink";
-import DirectorsDropdown from "@/components/Header/DirectorsDropdown";
 
 function NavLinks({ handleNavigation, getLinkClass }) {
     const [navLinks, setNavLinks] = useState([]);
@@ -22,11 +21,10 @@ function NavLinks({ handleNavigation, getLinkClass }) {
     }, []);
 
     return (
-        <nav className="items-center justify-between hidden text-xs font-bold tracking-tight uppercase md:flex">
-            <DirectorsDropdown handleNavigation={handleNavigation} />
+        <nav className="items-center hidden text-xs font-bold tracking-tight uppercase md:flex">
             <ul className="flex items-center uppercase group">
                 {navLinks.map((link) => (
-                    <li key={link.href} className="last:pr-10">
+                    <li key={link.href} className="last:pr-6">
                         <TransitionLink
                             href={link.href}
                             className={`p-6 transition-opacity duration-300 ${getLinkClass(

@@ -49,7 +49,7 @@ export default function ProjectVideoCard({
                     width={800}
                     height={450}
                     priority={priority}
-                    className={`object-cover transition-transform duration-300 group-hover:scale-110 ${
+                    className={`object-cover w-full transition-transform duration-300 group-hover:scale-110 ${
                         isHovered ? "opacity-0" : "opacity-100"
                     }`}
                 />
@@ -63,10 +63,11 @@ export default function ProjectVideoCard({
                         <Image
                             src={gifUrl}
                             alt={`${title} GIF`}
-                            width={600}
-                            height={400}
+                            width={800}
+                            height={450}
                             className="absolute top-0 left-0 object-cover w-full h-full"
                             onLoad={handleGifLoad}
+                            unoptimized
                         />
                     </>
                 )}

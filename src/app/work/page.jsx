@@ -1,7 +1,7 @@
 import ProjectList from "@/components/ProjectList/ProjectList";
 import fetchPaginatedData from "@/utils/fetchPaginatedData";
 
-export default async function Commercials() {
+export default async function Work() {
     const jsonUrl =
         "https://electra-website-dusky.vercel.app/data/directors.json";
     let projects = [];
@@ -14,8 +14,8 @@ export default async function Commercials() {
 
     return (
         <div className="p-4 mt-32 lg:p-8 lg:mt-60">
-            <h1 className="text-xl font-bold text-orange-400 uppercase md:text-3xl">
-                Commercials
+            <h1 className="text-xl font-bold text-white uppercase md:text-3xl">
+                Our Work
             </h1>
             <ProjectList projects={projects} />
         </div>

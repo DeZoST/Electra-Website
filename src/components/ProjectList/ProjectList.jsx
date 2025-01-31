@@ -35,23 +35,19 @@ const ProjectList = ({ projects }) => {
     };
 
     const gridClass =
-        projects.length === 1
-            ? "grid-cols-1"
-            : "grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3";
+        projects.length === 1 ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-2";
 
     return (
         <>
-            <ul
-                className={`grid gap-8 mt-4 md:mt-6 ${gridClass} max-w-screen-[2000px] mx-auto`}
-            >
+            <ul className={`grid gap-3 mt-4 md:mt-6 ${gridClass}`}>
                 {projects.map((project, index) => (
                     <li
                         key={index}
-                        className={`transition-opacity duration-500 ${
+                        className={`transition-opacity w-full duration-500 ${
                             loadedIndexes.includes(index)
                                 ? "opacity-100"
                                 : "opacity-0"
-                        } ${projects.length === 1 ? "w-full" : "w-fit"}`}
+                        })`}
                     >
                         <ProjectVideoCard
                             title={project.title}
@@ -63,7 +59,7 @@ const ProjectList = ({ projects }) => {
                                 handleOpenModal(project.muxPlaybackId)
                             }
                             priority={index === 0}
-                            isSingle={projects.length === 1} // Pass isSingle prop
+                            isSingle={projects.length === 1}
                         />
                     </li>
                 ))}
