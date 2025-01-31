@@ -1,12 +1,5 @@
-"use client";
-
-import { useEffect } from "react";
-import dynamic from "next/dynamic";
-
-const MuxPlayer = dynamic(() => import("@mux/mux-player-react"), {
-    ssr: false,
-    loading: () => <div className="bg-black aspect-video"></div>,
-});
+import React, { useEffect } from "react";
+import MuxPlayer from "@mux/mux-player-react";
 
 const VideoModal = ({ isOpen, playbackId, onClose }) => {
     useEffect(() => {
@@ -19,8 +12,17 @@ const VideoModal = ({ isOpen, playbackId, onClose }) => {
 
     if (!isOpen || !playbackId) return null;
 
+    const handleBackgroundClick = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    };
+
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+            onClick={handleBackgroundClick}
+        >
             <div className="relative w-11/12 lg:w-10/12">
                 <button
                     className="absolute z-50 text-xl text-white transition-colors right-2 md:text-2xl lg:text-4xl hover:text-orange-400"
