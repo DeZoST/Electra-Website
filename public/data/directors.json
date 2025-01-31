@@ -11,13 +11,6 @@
                 "image": "/images/Thumbnails/zw/Ford_Bronco.png"
             },
             {
-                "title": "What Makes Us",
-                "client": "Geisinger",
-                "muxAssetId": "iIP02uQk01gBFvDG7GMVk9hfLQm9sENGkwhUeLcJ8VGWI",
-                "muxPlaybackId": "7ZQehp7SlbrHBy4HT1J01d9fTfaD7e5BOGvmfgwLPgL4",
-                "image": "/images/Thumbnails/zw/Geisnger_What_Makes_Us.png"
-            },
-            {
                 "title": "Experience Scottsdale",
                 "client": "Memoria",
                 "muxAssetId": "dk1U5vOiMpEQ02I01lGX9eg11z46Y5ndixIEp01LEKK8Tk",
@@ -25,31 +18,31 @@
                 "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             },
             {
-                "title": "Temporary is Beautiful",
-                "client": "Kelly",
-                "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
-                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
-            },
-            {
-                "title": "Experience Scottsdale",
-                "client": "Memoria",
-                "muxAssetId": "e00X67zLTz4UwiroYbwDkY3o3B4Hhw8Zr8Z2RRULj9QY",
-                "muxPlaybackId": "jpJ01ZuNjaKFdpz02kSdJVRrPeo4iA1EDsmB1Ndpkd6sE",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
-            },
-            {
-                "title": "Temporary is Beautiful",
-                "client": "Kelly",
-                "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
-                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
+                "title": "What Makes Us",
+                "client": "Geisinger",
+                "muxAssetId": "iIP02uQk01gBFvDG7GMVk9hfLQm9sENGkwhUeLcJ8VGWI",
+                "muxPlaybackId": "7ZQehp7SlbrHBy4HT1J01d9fTfaD7e5BOGvmfgwLPgL4",
+                "image": "/images/Thumbnails/zw/Geisnger_What_Makes_Us.png"
             }
         ]
     },
     "Lorenzo de Guia": {
         "name": "Lorenzo de Guia",
         "projects": [
+            {
+                "title": "The Agility of M",
+                "client": "BMW",
+                "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
+                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
+                "image": "/images/Thumbnails/lg/bmw_the_agility_of_m.png"
+            },
+            {
+                "title": "Project See Me",
+                "client": "3M",
+                "muxAssetId": "j5791VGb2rcgDz4E2qiqiXOfVTW3pyujsm75600y9py00",
+                "muxPlaybackId": "mACdPBjc3T8h71wIIotEkstAQ5omVWgWCbbz101700drQ",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
+            },
             {
                 "title": "Leeper",
                 "client": "Nike",
@@ -63,40 +56,19 @@
                 "muxAssetId": "v4ZamFnAE4vPm5w003oV18IPQxGAfJqzEaMMIZOUQmuk",
                 "muxPlaybackId": "VBwJ5TA00Ob2iOYXRnmoqJKq502SXO02TG5OqqpCQNOx3s",
                 "image": "/images/Thumbnails/lg/NHL_thank_you_hockey.png"
-            },
-            {
-                "title": "The Agility of M",
-                "client": "BMW",
-                "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
-                "image": "/images/Thumbnails/lg/bmw_the_agility_of_m.png"
-            },
-            {
-                "title": "More More",
-                "client": "Blue Shield",
-                "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
-            },
-            {
-                "title": "Driven",
-                "client": "BMW",
-                "muxAssetId": "VR02fI75piTojsegup02LRuFt017O9qlLqtJLitsHUhTBw",
-                "muxPlaybackId": "I9fBzWVzFD9TrsZaXd00ScUxJmppLJ4Z02IptYEPo9vvc",
-                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
-            },
-            {
-                "title": "Project See Me",
-                "client": "3M",
-                "muxAssetId": "j5791VGb2rcgDz4E2qiqiXOfVTW3pyujsm75600y9py00",
-                "muxPlaybackId": "mACdPBjc3T8h71wIIotEkstAQ5omVWgWCbbz101700drQ",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             }
         ]
     },
     "Anthony Garth": {
         "name": "Anthony Garth",
         "projects": [
+            {
+                "title": "Superfan",
+                "client": "Ford NFL",
+                "muxAssetId": "01dgU4nyUHam5kUsT5KK016izIqa01kzR008E19ztPO02qQo",
+                "muxPlaybackId": "i01Ulqp4lofAUraM9fT6ApiuR9TTxzcVoqx27heCVZ1k",
+                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
+            },
             {
                 "title": "Storm",
                 "client": "Ford Ranger",
@@ -110,34 +82,6 @@
                 "muxAssetId": "Y7hlp7Hcf8ACwwGHw5fvQG8l00G8GEcFm02GYNcHWzeNY",
                 "muxPlaybackId": "LiIRyVKExSoXWBCzoYJ54ZVaTqBkTOCm83ntbgfAi5M",
                 "image": "/images/Thumbnails/ag/corewell_can_we.png"
-            },
-            {
-                "title": "Army Navy Family",
-                "client": "Chevrolet",
-                "muxAssetId": "Gtd701vW5tlzYZYOHD29saczqhK5702BO28CKiMjVPoLw",
-                "muxPlaybackId": "w93yj2VEDM82SEgDC3fm2Rq5o5AMhRoTPYAPas63ros",
-                "image": "/images/Thumbnails/ag/chevrolet_army_navy_family.png"
-            },
-            {
-                "title": "Detroit",
-                "client": "Pure Michigan",
-                "muxAssetId": "LFhHwSkTVLTQLzF3UtG00NHkftkIqnpbuLsWt01zh18lc",
-                "muxPlaybackId": "01Wj13irzW2QPCo9YbOtHqhDsuqc8kKRGoJRLAEImHaQ",
-                "image": "/images/Thumbnails/ag/pure_michigan_detroit.png"
-            },
-            {
-                "title": "Superfan",
-                "client": "Ford NFL",
-                "muxAssetId": "01dgU4nyUHam5kUsT5KK016izIqa01kzR008E19ztPO02qQo",
-                "muxPlaybackId": "i01Ulqp4lofAUraM9fT6ApiuR9TTxzcVoqx27heCVZ1k",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
-            },
-            {
-                "title": "Superfan",
-                "client": "Ford NFL",
-                "muxAssetId": "01dgU4nyUHam5kUsT5KK016izIqa01kzR008E19ztPO02qQo",
-                "muxPlaybackId": "i01Ulqp4lofAUraM9fT6ApiuR9TTxzcVoqx27heCVZ1k",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
             }
         ]
     },
@@ -152,39 +96,11 @@
                 "image": "/images/Thumbnails/bw/geico_pop_star.png"
             },
             {
-                "title": "Sweet Thursday",
-                "client": "Thursday Night Football",
-                "muxAssetId": "9B16R1f5KBMQZZoUZA02hY84lrB016N02MEv2bWEUy02dVg",
-                "muxPlaybackId": "PT02ecDeoihLhjtMD01YvEsVdJA1GAwWaWvAWUSHgMwlo",
-                "image": "/images/Thumbnails/bw/tnf_sweet_thursday.png"
-            },
-            {
                 "title": "The Case",
                 "client": "Tax Act",
                 "muxAssetId": "mjGjFm023zAsiFwRpSjRV01RZ01YorT00WZhd007lqd6QS4M",
                 "muxPlaybackId": "c7q4aa5CsjlVvSntUpvYmce8FJbcCxuC7JB008EH02EE8",
                 "image": "/images/Thumbnails/bw/tax_act_the_case.png"
-            },
-            {
-                "title": "In The Know",
-                "client": "Subway",
-                "muxAssetId": "SdlFdTp6TrFrckoozhZVZtNKYvIt8YfrF00eM33bmnIA",
-                "muxPlaybackId": "h6Mu2s97UzM3tccE1jY5WLf00XTi9ooQaZGVRtq83X3o",
-                "image": "/images/Thumbnails/bw/subway_in_the_know.png"
-            },
-            {
-                "title": "Dog",
-                "client": "Clear",
-                "muxAssetId": "9B16R1f5KBMQZZoUZA02hY84lrB016N02MEv2bWEUy02dVg",
-                "muxPlaybackId": "PT02ecDeoihLhjtMD01YvEsVdJA1GAwWaWvAWUSHgMwlo",
-                "image": "/images/Thumbnails/zw/ES_Sunglobe.png"
-            },
-            {
-                "title": "Temporary is Beautiful",
-                "client": "Kelly",
-                "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
-                "image": "/images/Thumbnails/zw/kelly_temp_is_beautiful.png"
             }
         ]
     }
