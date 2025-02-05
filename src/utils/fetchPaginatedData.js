@@ -10,6 +10,7 @@ export default async function fetchPaginatedData(jsonUrl) {
                 ...data[director].projects.map((project) => ({
                     ...project,
                     director: data[director].name || null,
+                    order: project.order || 0,
                 })),
             ];
         }
@@ -17,8 +18,11 @@ export default async function fetchPaginatedData(jsonUrl) {
         projects = Object.values(data).map((project) => ({
             ...project,
             director: null,
+            order: project.order || 0,
         }));
     }
+
+    projects.sort((a, b) => a.order - b.order);
 
     return projects;
 }
