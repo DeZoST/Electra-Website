@@ -9,16 +9,12 @@ import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isFadingOut, setIsFadingOut] = useState(false);
+
     const pathname = usePathname();
     const router = useRouter();
     const revealClass = useRevealAnimation(true, "top");
 
     const handleNavigation = async (href) => {
-        setIsLoading(true);
-        setIsFadingOut(false);
-
         try {
             router.push(href);
         } finally {
@@ -27,9 +23,7 @@ function Header() {
     };
 
     const fadeOutLoader = () => {
-        setIsFadingOut(true);
         setTimeout(() => {
-            setIsLoading(false);
             window.dispatchEvent(new CustomEvent("pageReady"));
         }, 1000);
     };
