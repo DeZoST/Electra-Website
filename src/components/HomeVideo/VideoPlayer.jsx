@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import useProgressBar from "@/hooks/useProgressBar";
 
 function VideoPlayer({
@@ -10,6 +10,8 @@ function VideoPlayer({
     activeVideoIndex,
     onEnded,
     onClick,
+    visible,
+    isLoaderGone,
 }) {
     const videoRef = useRef(null);
     const { startProgressUpdate, stopProgressUpdate, resetProgressBar } =
@@ -21,11 +23,13 @@ function VideoPlayer({
 
         const handlePlay = async () => {
             try {
-                video.muted = muted;
-                resetProgressBar(activeVideoIndex);
-                await video.play();
-                console.log("Video is playing");
-                startProgressUpdate();
+                if (isLoaderGone) {
+                    video.muted = muted;
+                    resetProgressBar(activeVideoIndex);
+                    await video.play();
+                    console.log("Video is playing");
+                    startProgressUpdate();
+                }
             } catch (err) {
                 console.warn("Error playing video:", err);
             }
@@ -37,7 +41,7 @@ function VideoPlayer({
 
         video.addEventListener("ended", handleEnded);
 
-        if (autoPlay) {
+        if (autoPlay && visible) {
             handlePlay();
         }
 
@@ -55,7 +59,21 @@ function VideoPlayer({
         startProgressUpdate,
         stopProgressUpdate,
         onEnded,
+        visible,
+        isLoaderGone,
     ]);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (visible) {
+            video.play();
+        } else {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }, [visible]);
 
     return (
         <video
@@ -63,7 +81,9 @@ function VideoPlayer({
             src={videoSrc}
             loop={loop}
             onClick={onClick}
-            className="absolute top-0 left-0 object-cover h-full cursor-pointer -full"
+            className={`absolute top-0 left-0 object-cover h-full cursor-pointer w-full ${
+                visible ? "block" : "hidden"
+            }`}
         />
     );
 }
