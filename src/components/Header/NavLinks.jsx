@@ -1,25 +1,17 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { TransitionLink } from "@/components/TransitionLink/TransitionLink";
 
+const navLinks = [
+    {
+        name: "Work",
+        href: "/work",
+    },
+    {
+        name: "Contact",
+        href: "/contact",
+    },
+];
+
 function NavLinks({ handleNavigation, getLinkClass }) {
-    const [navLinks, setNavLinks] = useState([]);
-
-    useEffect(() => {
-        async function fetchNavLinks() {
-            try {
-                const res = await fetch("/data/nav_links.json");
-                const data = await res.json();
-                setNavLinks(data);
-            } catch (err) {
-                console.error("Failed to fetch navigation links:", err);
-            }
-        }
-
-        fetchNavLinks();
-    }, []);
-
     return (
         <nav className="items-center hidden text-xs font-bold tracking-tight uppercase md:flex">
             <ul className="flex items-center uppercase group">
