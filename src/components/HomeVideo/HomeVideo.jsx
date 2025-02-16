@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import useRevealAnimation from "@/hooks/useRevealAnimation";
 import VideoList from "@/components/HomeVideo/VideoList";
 import VideoModalHandler from "@/components/HomeVideo/VideoModalHandler";
@@ -32,6 +32,7 @@ function HomeVideo({ videos }) {
             if (index === activeVideoIndex) return;
             resetProgressBar(activeVideoIndex);
             setActiveVideoIndex(index);
+            resetProgressBar(index);
         },
         [activeVideoIndex, resetProgressBar]
     );
@@ -86,6 +87,7 @@ function HomeVideo({ videos }) {
                             isLogoVisible={isLogoVisible}
                             isLogoTranslated={isLogoTranslated}
                             openModal={handleOpenModal}
+                            isLoaderGone={isLoaderGone}
                         />
                     </>
                 )}

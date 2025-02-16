@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import DesktopView from "@/components/HomeVideo/DesktopView";
 import MobileView from "@/components/HomeVideo/MobileView";
 import useIsMobile from "@/hooks/useIsMobile";
@@ -14,6 +11,7 @@ function VideoList({
     isLogoVisible,
     isLogoTranslated,
     openModal,
+    isLoaderGone,
 }) {
     const isMobile = useIsMobile();
 
@@ -23,6 +21,8 @@ function VideoList({
             activeVideoIndex={activeVideoIndex}
             handleVideoChange={handleVideoChange}
             openModal={openModal}
+            isLoaderGone={isLoaderGone}
+            revealClass={revealClass}
         />
     ) : (
         <DesktopView
@@ -34,6 +34,7 @@ function VideoList({
             isLogoVisible={isLogoVisible}
             isLogoTranslated={isLogoTranslated}
             openModal={openModal}
+            isLoaderGone={isLoaderGone}
         />
     );
 }

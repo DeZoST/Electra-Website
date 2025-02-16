@@ -5,7 +5,6 @@ const VideoPlayer = dynamic(
     () => import("@/components/HomeVideo/VideoPlayer"),
     {
         ssr: false,
-        loading: () => <p>Loading...</p>,
     }
 );
 
@@ -14,21 +13,30 @@ function MobileView({
     activeVideoIndex,
     handleVideoChange,
     openModal,
+    isLoaderGone,
+    revealClass,
 }) {
     return (
         <div className="relative flex flex-col items-center justify-center w-full h-full">
-            <VideoPlayer
-                videoSrc={videos[activeVideoIndex].src}
-                autoPlay
-                onEnded={() =>
-                    handleVideoChange((activeVideoIndex + 1) % videos.length)
-                }
-                onClick={() =>
-                    openModal(videos[activeVideoIndex].muxPlaybackId)
-                }
-            />
-            <div className="absolute flex flex-col items-center space-y-2 bottom-4">
-                <h1 className="text-lg text-white">
+            {videos.map((video, index) => (
+                <VideoPlayer
+                    key={index}
+                    videoSrc={video.src}
+                    autoPlay={index === activeVideoIndex}
+                    onEnded={() =>
+                        handleVideoChange(
+                            (activeVideoIndex + 1) % videos.length
+                        )
+                    }
+                    onClick={() => openModal(video.muxPlaybackId)}
+                    visible={index === activeVideoIndex}
+                    isLoaderGone={isLoaderGone}
+                />
+            ))}
+            <div
+                className={`absolute flex flex-col items-center space-y-2 bottom-4 ${revealClass}`}
+            >
+                <h1 className={`text-lg text-white ${revealClass}`}>
                     {videos[activeVideoIndex].title}
                 </h1>
                 <p className="text-sm text-gray-300">

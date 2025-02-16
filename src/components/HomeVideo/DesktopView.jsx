@@ -6,7 +6,6 @@ const VideoPlayer = dynamic(
     () => import("@/components/HomeVideo/VideoPlayer"),
     {
         ssr: false,
-        loading: () => <p>Loading...</p>,
     }
 );
 
@@ -19,21 +18,27 @@ function DesktopView({
     isLogoVisible,
     isLogoTranslated,
     openModal,
+    isLoaderGone,
 }) {
     return (
         <>
-            <VideoPlayer
-                videoSrc={videos[activeVideoIndex].src}
-                autoPlay
-                onEnded={() =>
-                    handleVideoChange((activeVideoIndex + 1) % videos.length)
-                }
-                progressRefs={progressRefs}
-                activeVideoIndex={activeVideoIndex}
-                onClick={() =>
-                    openModal(videos[activeVideoIndex].muxPlaybackId)
-                }
-            />
+            {videos.map((video, index) => (
+                <VideoPlayer
+                    key={index}
+                    videoSrc={video.src}
+                    autoPlay={index === activeVideoIndex}
+                    onEnded={() =>
+                        handleVideoChange(
+                            (activeVideoIndex + 1) % videos.length
+                        )
+                    }
+                    progressRefs={progressRefs}
+                    activeVideoIndex={activeVideoIndex}
+                    onClick={() => openModal(video.muxPlaybackId)}
+                    visible={index === activeVideoIndex}
+                    isLoaderGone={isLoaderGone}
+                />
+            ))}
             <HomeVideoDetails
                 videos={videos}
                 activeVideoIndex={activeVideoIndex}
