@@ -50,7 +50,7 @@ function Header() {
                 />
             </Head>
             <header
-                className={`fixed z-50 flex items-center justify-between w-full header-text ${revealClass}`}
+                className={`fixed z-40 flex items-center justify-between w-full header-text ${revealClass}`}
             >
                 <Logo isOpen={isOpen} handleNavigation={handleNavigation} />
 
