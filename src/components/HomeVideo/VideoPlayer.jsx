@@ -41,7 +41,7 @@ function VideoPlayer({
 
         video.addEventListener("ended", handleEnded);
 
-        if (autoPlay && visible) {
+        if (autoPlay && visible && isLoaderGone) {
             handlePlay();
         }
 
@@ -67,13 +67,13 @@ function VideoPlayer({
         const video = videoRef.current;
         if (!video) return;
 
-        if (visible) {
+        if (visible && isLoaderGone) {
             video.play();
         } else {
             video.pause();
-            video.currentTime = 0;
+            video.currentTime = 0; // Reset video time to 0
         }
-    }, [visible]);
+    }, [visible, isLoaderGone]);
 
     return (
         <video
