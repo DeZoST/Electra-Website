@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export const TransitionLink = ({ children, href, ...props }) => {
+export const TransitionLink = ({ children, href, onClick, ...props }) => {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -42,6 +42,10 @@ export const TransitionLink = ({ children, href, ...props }) => {
         await new Promise((resolve) => setTimeout(resolve, 300));
 
         router.push(href);
+
+        if (onClick) {
+            onClick();
+        }
     };
 
     return (

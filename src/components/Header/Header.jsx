@@ -4,6 +4,7 @@ import { useState } from "react";
 import Head from "next/head";
 import NavLinks from "./NavLinks";
 import Logo from "./Logo";
+import MobileMenu from "@/components/MobileMenu/MobileMenu";
 import useRevealAnimation from "@/hooks/useRevealAnimation";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -28,7 +29,9 @@ function Header() {
         }, 1000);
     };
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     const getLinkClass = (href) =>
         pathname === href
@@ -58,7 +61,14 @@ function Header() {
                     handleNavigation={handleNavigation}
                     getLinkClass={getLinkClass}
                 />
+                <button
+                    className="block p-6 text-3xl text-white md:hidden"
+                    onClick={toggleMenu}
+                >
+                    ☰
+                </button>
             </header>
+            <MobileMenu isOpen={isOpen} onClose={toggleMenu} />
         </>
     );
 }
