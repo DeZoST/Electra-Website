@@ -71,7 +71,7 @@ function VideoPlayer({
             video.play();
         } else {
             video.pause();
-            video.currentTime = 0; // Reset video time to 0
+            video.currentTime = 0;
         }
     }, [visible, isLoaderGone]);
 
