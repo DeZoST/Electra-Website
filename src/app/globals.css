@@ -24,7 +24,7 @@ body {
     color: var(--foreground);
     background: var(--background);
     font-family: "Montserrat", sans-serif;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 a {
