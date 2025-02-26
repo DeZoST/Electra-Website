@@ -20,7 +20,7 @@ const VideoModal = ({ isOpen, playbackId, onClose }) => {
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black "
             onClick={handleBackgroundClick}
         >
             <div className="relative w-11/12 lg:w-10/12">
@@ -36,7 +36,7 @@ const VideoModal = ({ isOpen, playbackId, onClose }) => {
                     controls
                     autoPlay
                     accentColor="#fb923c"
-                    className="aspect-video"
+                    className=" aspect-video"
                     forwardSeekOffset={5}
                     backwardSeekOffset={5}
                 />
