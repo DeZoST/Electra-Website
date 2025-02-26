@@ -74,6 +74,19 @@ mux-player {
     animation: revealTopToBottom 0.8s ease forwards;
 }
 
+.reveal-thumbnails {
+    animation: revealThumbnails 0.65s ease-in-out forwards;
+}
+
+@keyframes revealThumbnails {
+    0% {
+        clip-path: inset(50% 0 50% 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
 @keyframes revealTopToBottom {
     0% {
         opacity: 0;

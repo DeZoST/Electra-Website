@@ -15,6 +15,7 @@ export default function ProjectVideoCard({
 }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isGifLoaded, setIsGifLoaded] = useState(false);
+    const [isThumbnailLoaded, setIsThumbnailLoaded] = useState(false);
 
     const gifUrl = `https://image.mux.com/${muxID}/animated.webp?width=640&start=15`;
 
@@ -31,11 +32,15 @@ export default function ProjectVideoCard({
         setIsGifLoaded(true);
     };
 
+    const handleThumbnailLoad = () => {
+        setIsThumbnailLoaded(true);
+    };
+
     return (
         <div
             className={`relative overflow-hidden cursor-pointer group ${
                 isSingle ? "max-w-screen-xl mx-auto" : ""
-            }`}
+            } ${isThumbnailLoaded ? "reveal-thumbnails" : ""}`}
             onClick={onClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -51,6 +56,7 @@ export default function ProjectVideoCard({
                     className={`object-cover w-full transition-transform duration-300 group-hover:scale-110 ${
                         isHovered && isGifLoaded ? "opacity-0" : "opacity-100"
                     }`}
+                    onLoad={handleThumbnailLoad}
                 />
                 {isHovered && (
                     <Image
