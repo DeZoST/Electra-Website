@@ -47,7 +47,7 @@ const ProjectList = ({ projects }) => {
                             loadedIndexes.includes(index)
                                 ? "opacity-100"
                                 : "opacity-0"
-                        }`}
+                        })`}
                     >
                         <ProjectVideoCard
                             title={project.title}

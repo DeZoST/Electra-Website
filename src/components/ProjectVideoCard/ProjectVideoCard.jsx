@@ -10,8 +10,8 @@ export default function ProjectVideoCard({
     image,
     muxID,
     onClick,
-    priority = false,
-    isSingle = false,
+    priority,
+    isSingle,
 }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isGifLoaded, setIsGifLoaded] = useState(false);
@@ -19,21 +19,34 @@ export default function ProjectVideoCard({
 
     const gifUrl = `https://image.mux.com/${muxID}/animated.webp?width=640&start=15`;
 
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        setIsGifLoaded(false);
+    };
+
+    const handleGifLoad = () => {
+        setIsGifLoaded(true);
+    };
+
+    const handleThumbnailLoad = () => {
+        setIsThumbnailLoaded(true);
+    };
+
     return (
         <div
             className={`relative overflow-hidden cursor-pointer group ${
                 isSingle ? "max-w-screen-xl mx-auto" : ""
-            } ${isThumbnailLoaded ? "reveal-thumbnails" : ""}`}
+            } ${isThumbnailLoaded ? "reveal-thumbnails" : "opacity-0"}`}
             onClick={onClick}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => {
-                setIsHovered(false);
-                setIsGifLoaded(false);
-            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             data-mux-id={muxID}
         >
             <div className="relative h-full">
-                {/* Thumbnail Image */}
                 <Image
                     src={image}
                     alt={title}
@@ -43,26 +56,23 @@ export default function ProjectVideoCard({
                     className={`object-cover w-full transition-transform duration-300 group-hover:scale-110 ${
                         isHovered && isGifLoaded ? "opacity-0" : "opacity-100"
                     }`}
-                    onLoad={() => setIsThumbnailLoaded(true)}
+                    onLoad={handleThumbnailLoad}
                 />
-
-                {/* GIF Animation (Only when hovered) */}
                 {isHovered && (
                     <Image
                         src={gifUrl}
                         alt={`${title} GIF`}
                         width={800}
                         height={450}
-                        className={`absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-300 ${
+                        className={`absolute top-0 left-0 object-cover w-full h-full ${
                             isGifLoaded ? "opacity-100" : "opacity-0"
                         }`}
-                        onLoad={() => setIsGifLoaded(true)}
+                        onLoad={handleGifLoad}
                         unoptimized
                     />
                 )}
             </div>
 
-            {/* Title & Client Info */}
             <div className="absolute bottom-0 left-0 flex items-center gap-2 p-2 lg:p-4 text-[0.5rem] md:text-xs">
                 <h3 className="text-gray-200 uppercase">{title}</h3>
                 {client && " | "}
