@@ -15,7 +15,8 @@ module.exports = {
                     md: "48rem",
                     lg: "64rem",
                     xl: "80rem",
-                    "2xl": "96rem",
+                    xxl: "96rem",
+                    xxxl: "120rem",
                 },
             },
             width: {
