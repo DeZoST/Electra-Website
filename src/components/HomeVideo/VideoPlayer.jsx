@@ -68,7 +68,9 @@ function VideoPlayer({
         if (!video) return;
 
         if (visible && isLoaderGone) {
-            video.play();
+            video.play().catch((err) => {
+                console.warn("Error playing video:", err);
+            });
         } else {
             video.pause();
             video.currentTime = 0;
@@ -81,6 +83,8 @@ function VideoPlayer({
             src={videoSrc}
             loop={loop}
             onClick={onClick}
+            muted={muted}
+            playsInline
             className={`absolute top-0 left-0 object-cover h-full cursor-pointer w-full ${
                 visible ? "block" : "hidden"
             }`}
