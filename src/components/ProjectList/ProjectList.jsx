@@ -47,13 +47,14 @@ const ProjectList = ({ projects }) => {
                             loadedIndexes.includes(index)
                                 ? "opacity-100"
                                 : "opacity-0"
-                        })`}
+                        }`}
                     >
                         <ProjectVideoCard
                             title={project.title}
                             client={project.client}
                             director={project.director || null}
                             image={project.image}
+                            srcSet={project.srcSet}
                             muxID={project.muxPlaybackId}
                             onClick={() =>
                                 handleOpenModal(project.muxPlaybackId)

@@ -8,6 +8,7 @@ export default function ProjectVideoCard({
     client,
     director,
     image,
+    srcSet,
     muxID,
     onClick,
     priority,
@@ -57,6 +58,8 @@ export default function ProjectVideoCard({
                         isHovered && isGifLoaded ? "opacity-0" : "opacity-100"
                     }`}
                     onLoad={handleThumbnailLoad}
+                    srcSet={srcSet}
+                    sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, 800px"
                 />
                 {isHovered && (
                     <Image

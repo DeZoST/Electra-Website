@@ -9,6 +9,7 @@
                 "muxAssetId": "cuKCsiGI4zzK401024YMuBhoNE1qhBze01CmUar873MsWs",
                 "muxPlaybackId": "XdvyCtxC01GgLyKOlSNmhitkhmZgk9L402S6DQPf7bonY",
                 "image": "/images/Thumbnails/zw/01_Dust_is_Gold_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/01_Dust_is_Gold_(ZW).png?w=320 320w, /images/Thumbnails/zw/01_Dust_is_Gold_(ZW).png?w=480 480w, /images/Thumbnails/zw/01_Dust_is_Gold_(ZW).png?w=800 800w",
                 "order": 1
             },
             {
@@ -17,6 +18,7 @@
                 "muxAssetId": "dk1U5vOiMpEQ02I01lGX9eg11z46Y5ndixIEp01LEKK8Tk",
                 "muxPlaybackId": "ZrvpX2OHj96BKU7MyLNDcVC5NwWBxXcpZ23Ul1NOIgA",
                 "image": "/images/Thumbnails/zw/03_Sun_Globe_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/03_Sun_Globe_(ZW).png?w=320 320w, /images/Thumbnails/zw/03_Sun_Globe_(ZW).png?w=480 480w, /images/Thumbnails/zw/03_Sun_Globe_(ZW).png?w=800 800w",
                 "order": 3
             },
             {
@@ -25,6 +27,7 @@
                 "muxAssetId": "iIP02uQk01gBFvDG7GMVk9hfLQm9sENGkwhUeLcJ8VGWI",
                 "muxPlaybackId": "7ZQehp7SlbrHBy4HT1J01d9fTfaD7e5BOGvmfgwLPgL4",
                 "image": "/images/Thumbnails/zw/05_What_Makes_US_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/05_What_Makes_US_(ZW).png?w=320 320w, /images/Thumbnails/zw/05_What_Makes_US_(ZW).png?w=480 480w, /images/Thumbnails/zw/05_What_Makes_US_(ZW).png?w=800 800w",
                 "order": 5
             },
             {
@@ -33,6 +36,7 @@
                 "muxAssetId": "dk1U5vOiMpEQ02I01lGX9eg11z46Y5ndixIEp01LEKK8Tk",
                 "muxPlaybackId": "ZrvpX2OHj96BKU7MyLNDcVC5NwWBxXcpZ23Ul1NOIgA",
                 "image": "/images/Thumbnails/zw/07_Memoria_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/07_Memoria_(ZW).png?w=320 320w, /images/Thumbnails/zw/07_Memoria_(ZW).png?w=480 480w, /images/Thumbnails/zw/07_Memoria_(ZW).png?w=800 800w",
                 "order": 7
             },
             {
@@ -41,6 +45,7 @@
                 "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
                 "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/zw/09_Temporary_is_Beautiful_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/09_Temporary_is_Beautiful_(ZW).png?w=320 320w, /images/Thumbnails/zw/09_Temporary_is_Beautiful_(ZW).png?w=480 480w, /images/Thumbnails/zw/09_Temporary_is_Beautiful_(ZW).png?w=800 800w",
                 "order": 9
             },
             {
@@ -49,6 +54,7 @@
                 "muxAssetId": "K3kR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
                 "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/zw/13_We_Fly_(ZW).png",
+                "srcSet": "/images/Thumbnails/zw/13_We_Fly_(ZW).png?w=320 320w, /images/Thumbnails/zw/13_We_Fly_(ZW).png?w=480 480w, /images/Thumbnails/zw/13_We_Fly_(ZW).png?w=800 800w",
                 "order": 13
             }
         ]
@@ -62,6 +68,7 @@
                 "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
                 "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/lg/02_The_Agility_of_M_(LD).png",
+                "srcSet": "/images/Thumbnails/lg/02_The_Agility_of_M_(LD).png?w=320 320w, /images/Thumbnails/lg/02_The_Agility_of_M_(LD).png?w=480 480w, /images/Thumbnails/lg/02_The_Agility_of_M_(LD).png?w=800 800w",
                 "order": 2
             },
             {
@@ -70,6 +77,7 @@
                 "muxAssetId": "j5791VGb2rcgDz4E2qiqiXOfVTW3pyujsm75600y9py00",
                 "muxPlaybackId": "mACdPBjc3T8h71wIIotEkstAQ5omVWgWCbbz101700drQ",
                 "image": "/images/Thumbnails/lg/06_Project_See_Me_(LD).png",
+                "srcSet": "/images/Thumbnails/lg/06_Project_See_Me_(LD).png?w=320 320w, /images/Thumbnails/lg/06_Project_See_Me_(LD).png?w=480 480w, /images/Thumbnails/lg/06_Project_See_Me_(LD).png?w=800 800w",
                 "order": 6
             },
             {
@@ -78,6 +86,7 @@
                 "muxAssetId": "02bd5RPi541yG1StmAxnYUdP000202kBE5kDpPMeLEu42mA",
                 "muxPlaybackId": "gbylM1LZh1C00o7u5H33i2GGtG5L3M00PpCUGY6JdWKyc",
                 "image": "/images/Thumbnails/lg/10_Nike_Get_Gone_(LD).png",
+                "srcSet": "/images/Thumbnails/lg/10_Nike_Get_Gone_(LD).png?w=320 320w, /images/Thumbnails/lg/10_Nike_Get_Gone_(LD).png?w=480 480w, /images/Thumbnails/lg/10_Nike_Get_Gone_(LD).png?w=800 800w",
                 "order": 10
             },
             {
@@ -86,6 +95,7 @@
                 "muxAssetId": "v4ZamFnAE4vPm5w003oV18IPQxGAfJqzEaMMIZOUQmuk",
                 "muxPlaybackId": "VBwJ5TA00Ob2iOYXRnmoqJKq502SXO02TG5OqqpCQNOx3s",
                 "image": "/images/Thumbnails/lg/11_Thank_You_Hockey_(LD).png",
+                "srcSet": "/images/Thumbnails/lg/11_Thank_You_Hockey_(LD).png?w=320 320w, /images/Thumbnails/lg/11_Thank_You_Hockey_(LD).png?w=480 480w, /images/Thumbnails/lg/11_Thank_You_Hockey_(LD).png?w=800 800w",
                 "order": 11
             }
         ]
@@ -99,6 +109,7 @@
                 "muxAssetId": "xi9ta7En01KnBsZUt2Q3dL01TycbBKgzrf3zCVKWfJdTk",
                 "muxPlaybackId": "RvG9302MShMspvXDXxjEOO1Moypf6ebBJvu8ZyRVvNmc",
                 "image": "/images/Thumbnails/ag/04_Storm_(AG).png",
+                "srcSet": "/images/Thumbnails/ag/04_Storm_(AG).png?w=320 320w, /images/Thumbnails/ag/04_Storm_(AG).png?w=480 480w, /images/Thumbnails/ag/04_Storm_(AG).png?w=800 800w",
                 "order": 4
             }
         ]
@@ -112,6 +123,7 @@
                 "muxAssetId": "mjGjFm023zAsiFwRpSjRV01RZ01YorT00WZhd007lqd6QS4M",
                 "muxPlaybackId": "c7q4aa5CsjlVvSntUpvYmce8FJbcCxuC7JB008EH02EE8",
                 "image": "/images/Thumbnails/bw/12_The_Case_(BW).png",
+                "srcSet": "/images/Thumbnails/bw/12_The_Case_(BW).png?w=320 320w, /images/Thumbnails/bw/12_The_Case_(BW).png?w=480 480w, /images/Thumbnails/bw/12_The_Case_(BW).png?w=800 800w",
                 "order": 12
             },
             {
@@ -120,6 +132,7 @@
                 "muxAssetId": "BF8WYmqZ3caVkmEm3oxjoAj3v9td00cVEUhWyE8mZfAo",
                 "muxPlaybackId": "oV02irniUNdfGff7eKifCRxYQTbRwaWEtV2WlL01f9Pbs",
                 "image": "/images/Thumbnails/bw/14_Pop_Star_(BW).png",
+                "srcSet": "/images/Thumbnails/bw/14_Pop_Star_(BW).png?w=320 320w, /images/Thumbnails/bw/14_Pop_Star_(BW).png?w=480 480w, /images/Thumbnails/bw/14_Pop_Star_(BW).png?w=800 800w",
                 "order": 14
             }
         ]
