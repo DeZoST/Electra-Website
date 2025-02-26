@@ -13,7 +13,7 @@ export default async function Work() {
     }
 
     return (
-        <div className="p-4 mt-32 lg:p-8 lg:mt-60">
+        <div className="container mt-32 lg:mt-60">
             <h1 className="text-xl font-bold text-white uppercase md:text-3xl">
                 Our Work
             </h1>

@@ -5,7 +5,7 @@ function Logo({ isOpen, handleNavigation }) {
     return (
         <TransitionLink
             href="/"
-            className="p-6"
+            className="pt-6"
             onClick={() => handleNavigation("/")}
         >
             <Image

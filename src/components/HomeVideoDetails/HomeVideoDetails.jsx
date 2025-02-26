@@ -11,8 +11,8 @@ function HomeVideoDetails({
     openModal,
 }) {
     return (
-        <div className="flex items-end justify-end w-full h-full">
-            <ul className="grid grid-cols-3 grid-rows-2 p-12 text-sm">
+        <div className="container flex items-end justify-end w-full h-full">
+            <ul className="grid grid-cols-3 grid-rows-2 pb-12 text-sm">
                 <li>
                     <div
                         className={`overflow-hidden relative flex items-center justify-center w-full h-full transition-all ease-in-out ${
@@ -23,7 +23,7 @@ function HomeVideoDetails({
                         }}
                     >
                         <Image
-                            className={`z-50 p-4 ${
+                            className={`z-50 p-4 pl-8 ${
                                 isLogoVisible ? "opacity-100" : "opacity-0"
                             } transition-opacity duration-1000`}
                             src="/images/Electra_White.svg"
@@ -38,7 +38,7 @@ function HomeVideoDetails({
                 {videos.map((video, index) => (
                     <li
                         key={video.id || index}
-                        className={`cursor-pointer  p-4 ${revealClass} ${
+                        className={`cursor-pointer py-4 pl-8 ${revealClass} ${
                             index === activeVideoIndex ? "hover:scale-105" : ""
                         }`}
                         onMouseEnter={() => handleHover(index)}

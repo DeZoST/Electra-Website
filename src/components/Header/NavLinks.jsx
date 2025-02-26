@@ -16,10 +16,10 @@ function NavLinks({ handleNavigation, getLinkClass }) {
         <nav className="items-center hidden text-xs font-bold tracking-tight uppercase md:flex">
             <ul className="flex items-center uppercase group">
                 {navLinks.map((link) => (
-                    <li key={link.href} className="last:pr-6">
+                    <li key={link.href}>
                         <TransitionLink
                             href={link.href}
-                            className={`p-6 transition-opacity duration-300 ${getLinkClass(
+                            className={`py-6 pl-6 transition-opacity duration-300 ${getLinkClass(
                                 link.href
                             )}`}
                             onClick={() => handleNavigation(link.href)}

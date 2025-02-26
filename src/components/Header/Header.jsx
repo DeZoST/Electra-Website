@@ -53,7 +53,7 @@ function Header() {
                 />
             </Head>
             <header
-                className={`fixed z-40 flex items-center justify-between w-full header-text ${revealClass}`}
+                className={`fixed left-0 right-0 z-40 flex items-center justify-between container header-text ${revealClass}`}
             >
                 <Logo isOpen={isOpen} handleNavigation={handleNavigation} />
 
@@ -62,7 +62,7 @@ function Header() {
                     getLinkClass={getLinkClass}
                 />
                 <button
-                    className="block p-6 text-3xl text-white md:hidden"
+                    className="block text-3xl text-white md:hidden"
                     onClick={toggleMenu}
                 >
                     ☰
