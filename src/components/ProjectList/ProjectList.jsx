@@ -54,7 +54,6 @@ const ProjectList = ({ projects }) => {
                             client={project.client}
                             director={project.director || null}
                             image={project.image}
-                            srcSet={project.srcSet}
                             muxID={project.muxPlaybackId}
                             onClick={() =>
                                 handleOpenModal(project.muxPlaybackId)

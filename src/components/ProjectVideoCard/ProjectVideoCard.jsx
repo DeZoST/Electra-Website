@@ -8,11 +8,10 @@ export default function ProjectVideoCard({
     client,
     director,
     image,
-    srcSet,
     muxID,
     onClick,
-    priority,
-    isSingle,
+    priority = false,
+    isSingle = false,
 }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isGifLoaded, setIsGifLoaded] = useState(false);
@@ -20,62 +19,50 @@ export default function ProjectVideoCard({
 
     const gifUrl = `https://image.mux.com/${muxID}/animated.webp?width=640&start=15`;
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-        setIsGifLoaded(false);
-    };
-
-    const handleGifLoad = () => {
-        setIsGifLoaded(true);
-    };
-
-    const handleThumbnailLoad = () => {
-        setIsThumbnailLoaded(true);
-    };
-
     return (
         <div
             className={`relative overflow-hidden cursor-pointer group ${
                 isSingle ? "max-w-screen-xl mx-auto" : ""
             } ${isThumbnailLoaded ? "reveal-thumbnails" : ""}`}
             onClick={onClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => {
+                setIsHovered(false);
+                setIsGifLoaded(false);
+            }}
             data-mux-id={muxID}
         >
             <div className="relative h-full">
+                {/* Thumbnail Image */}
                 <Image
                     src={image}
                     alt={title}
-                    width={800}
-                    height={450}
+                    width={1000}
+                    height={562}
                     priority={priority}
                     className={`object-cover w-full transition-transform duration-300 group-hover:scale-110 ${
                         isHovered && isGifLoaded ? "opacity-0" : "opacity-100"
                     }`}
-                    onLoad={handleThumbnailLoad}
-                    srcSet={srcSet}
-                    sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, 800px"
+                    onLoad={() => setIsThumbnailLoaded(true)}
                 />
+
+                {/* GIF Animation (Only when hovered) */}
                 {isHovered && (
                     <Image
                         src={gifUrl}
                         alt={`${title} GIF`}
                         width={800}
                         height={450}
-                        className={`absolute top-0 left-0 object-cover w-full h-full ${
+                        className={`absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-300 ${
                             isGifLoaded ? "opacity-100" : "opacity-0"
                         }`}
-                        onLoad={handleGifLoad}
+                        onLoad={() => setIsGifLoaded(true)}
                         unoptimized
                     />
                 )}
             </div>
 
+            {/* Title & Client Info */}
             <div className="absolute bottom-0 left-0 flex items-center gap-2 p-2 lg:p-4 text-[0.5rem] md:text-xs">
                 <h3 className="text-gray-200 uppercase">{title}</h3>
                 {client && " | "}
