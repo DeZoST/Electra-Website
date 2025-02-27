@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import useProgressBar from "@/hooks/useProgressBar";
 
 function VideoPlayer({
@@ -14,6 +14,7 @@ function VideoPlayer({
     isLoaderGone,
 }) {
     const videoRef = useRef(null);
+    const [isLoaded, setIsLoaded] = useState(false);
     const { startProgressUpdate, stopProgressUpdate, resetProgressBar } =
         useProgressBar(videoRef, activeVideoIndex, progressRefs);
 
@@ -77,10 +78,33 @@ function VideoPlayer({
         }
     }, [visible, isLoaderGone]);
 
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setIsLoaded(true);
+                        observer.unobserve(video);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        observer.observe(video);
+
+        return () => {
+            observer.unobserve(video);
+        };
+    }, []);
+
     return (
         <video
             ref={videoRef}
-            src={videoSrc}
+            src={isLoaded ? videoSrc : null}
             loop={loop}
             onClick={onClick}
             muted={muted}
