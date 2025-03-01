@@ -15,12 +15,9 @@ function HomeVideoDetails({
             <ul className="grid grid-cols-3 grid-rows-2 pb-12 text-sm">
                 <li>
                     <div
-                        className={`overflow-hidden relative flex items-center justify-center w-full h-full transition-all ease-in-out ${
-                            isLogoTranslated ? "top-0" : "-top-[500%]"
+                        className={`overflow-hidden relative flex items-center justify-center w-full h-full transition-all duration-1000 ease-in-out ${
+                            isLogoTranslated ? "top-0" : "-top-[30dvh]"
                         } `}
-                        style={{
-                            transition: `top 0.75s ease-in-out`,
-                        }}
                     >
                         <Image
                             className={`z-50 p-4 pl-8 ${
@@ -38,9 +35,7 @@ function HomeVideoDetails({
                 {videos.map((video, index) => (
                     <li
                         key={video.id || index}
-                        className={`cursor-pointer py-4 pl-8 ${revealClass} ${
-                            index === activeVideoIndex ? "hover:scale-105" : ""
-                        }`}
+                        className={`cursor-pointer py-4 pl-8 transition-transform ${revealClass}`}
                         onMouseEnter={() => handleHover(index)}
                         onClick={() => openModal(video.muxPlaybackId)}
                     >
