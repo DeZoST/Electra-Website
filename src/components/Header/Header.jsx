@@ -1,15 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Head from "next/head";
 import NavLinks from "./NavLinks";
 import Logo from "./Logo";
 import MobileMenu from "@/components/MobileMenu/MobileMenu";
 import useRevealAnimation from "@/hooks/useRevealAnimation";
+import useIsMobile from "@/hooks/useIsMobile";
 import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isToggling, setIsToggling] = useState(false);
+    const isMobile = useIsMobile();
 
     const pathname = usePathname();
     const router = useRouter();
@@ -29,9 +32,16 @@ function Header() {
         }, 1000);
     };
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleMenu = useCallback(() => {
+        if (isToggling) return;
+
+        setIsToggling(true);
+        setIsOpen((prev) => !prev);
+
+        setTimeout(() => {
+            setIsToggling(false);
+        }, 1000);
+    }, [isToggling]);
 
     const getLinkClass = (href) =>
         pathname === href
@@ -52,8 +62,9 @@ function Header() {
                     as="image"
                 />
             </Head>
+            {isMobile && <MobileMenu isOpen={isOpen} onClose={toggleMenu} />}
             <header
-                className={`fixed left-0 right-0 z-40 flex items-center justify-between container header-text ${revealClass}`}
+                className={`fixed left-0 pt-6 md:pt-4 right-0 z-40 flex items-center justify-between container header-text ${revealClass}`}
             >
                 <Logo isOpen={isOpen} handleNavigation={handleNavigation} />
 
@@ -68,7 +79,6 @@ function Header() {
                     ☰
                 </button>
             </header>
-            <MobileMenu isOpen={isOpen} onClose={toggleMenu} />
         </>
     );
 }
