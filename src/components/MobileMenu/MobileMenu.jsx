@@ -23,7 +23,6 @@ function MobileMenu({ isOpen, onClose }) {
             setTextVisible(false);
             setTimeout(() => {
                 setMenuVisible(false);
-                document.body.style.overflow = "auto";
             }, 400);
         }
     }, [isOpen]);
