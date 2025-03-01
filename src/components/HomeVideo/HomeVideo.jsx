@@ -19,7 +19,7 @@ function HomeVideo({ videos }) {
     const [isLoaderGone, setIsLoaderGone] = useState(false);
 
     const progressRefs = useRef([]);
-    const revealClass = useRevealAnimation(isLogoTranslated, "bottom");
+    const revealClass = useRevealAnimation(isLoaderGone, "bottom");
 
     const resetProgressBar = useCallback((index) => {
         if (progressRefs.current[index]) {
@@ -64,13 +64,13 @@ function HomeVideo({ videos }) {
                 triggerRevealSequence();
                 sessionStorage.setItem("hasVisitedHomePage", "true");
             } else {
-                setIsLogoVisible(true);
                 setIsLogoTranslated(true);
                 setIsLoading(false);
                 setIsLoaderGone(true);
+                setIsLogoVisible(true);
             }
         }
-    }, [triggerRevealSequence]);
+    }, []);
 
     return (
         <section className="relative w-full overflow-hidden h-dvh">
