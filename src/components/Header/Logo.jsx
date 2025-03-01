@@ -3,11 +3,7 @@ import { TransitionLink } from "@/components/TransitionLink/TransitionLink";
 
 function Logo({ isOpen, handleNavigation }) {
     return (
-        <TransitionLink
-            href="/"
-            className="pt-6"
-            onClick={() => handleNavigation("/")}
-        >
+        <TransitionLink href="/" onClick={() => handleNavigation("/")}>
             <Image
                 src={`/images/Bolt_Star_${isOpen ? "Orange" : "White"}.svg`}
                 alt={`Bolt Star ${isOpen ? "Orange" : "White"} Logo`}
