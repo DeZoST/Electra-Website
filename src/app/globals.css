@@ -64,13 +64,10 @@ mux-player {
 
 .reveal-hidden {
     opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal-top-to-bottom {
-    opacity: 1;
-    transform: translateY(0);
     animation: revealTopToBottom 0.8s ease forwards;
 }
 
@@ -99,8 +96,6 @@ mux-player {
 }
 
 .reveal-bottom-to-top {
-    opacity: 1;
-    transform: translateY(0);
     animation: revealBottomToTop 0.8s ease forwards;
 }
 
