@@ -7,11 +7,7 @@ function VideoList({
     activeVideoIndex,
     handleVideoChange,
     progressRefs,
-    revealClass,
-    isLogoVisible,
-    isLogoTranslated,
     openModal,
-    isLoaderGone,
 }) {
     const isMobile = useIsMobile();
 
@@ -21,8 +17,6 @@ function VideoList({
             activeVideoIndex={activeVideoIndex}
             handleVideoChange={handleVideoChange}
             openModal={openModal}
-            isLoaderGone={isLoaderGone}
-            revealClass={revealClass}
         />
     ) : (
         <DesktopView
@@ -30,11 +24,7 @@ function VideoList({
             activeVideoIndex={activeVideoIndex}
             progressRefs={progressRefs}
             handleVideoChange={handleVideoChange}
-            revealClass={revealClass}
-            isLogoVisible={isLogoVisible}
-            isLogoTranslated={isLogoTranslated}
             openModal={openModal}
-            isLoaderGone={isLoaderGone}
         />
     );
 }

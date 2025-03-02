@@ -11,7 +11,6 @@ function VideoPlayer({
     onEnded,
     onClick,
     visible,
-    isLoaderGone,
 }) {
     const videoRef = useRef(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -24,13 +23,11 @@ function VideoPlayer({
 
         const handlePlay = async () => {
             try {
-                if (isLoaderGone) {
-                    video.muted = muted;
-                    resetProgressBar(activeVideoIndex);
-                    await video.play();
-                    console.log("Video is playing");
-                    startProgressUpdate();
-                }
+                video.muted = muted;
+                resetProgressBar(activeVideoIndex);
+                await video.play();
+                console.log("Video is playing");
+                startProgressUpdate();
             } catch (err) {
                 console.warn("Error playing video:", err);
             }
@@ -42,7 +39,7 @@ function VideoPlayer({
 
         video.addEventListener("ended", handleEnded);
 
-        if (autoPlay && visible && isLoaderGone) {
+        if (autoPlay && visible) {
             handlePlay();
         }
 
@@ -61,14 +58,13 @@ function VideoPlayer({
         stopProgressUpdate,
         onEnded,
         visible,
-        isLoaderGone,
     ]);
 
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
 
-        if (visible && isLoaderGone) {
+        if (visible) {
             video.play().catch((err) => {
                 console.warn("Error playing video:", err);
             });
@@ -76,7 +72,7 @@ function VideoPlayer({
             video.pause();
             video.currentTime = 0;
         }
-    }, [visible, isLoaderGone]);
+    }, [visible]);
 
     useEffect(() => {
         const video = videoRef.current;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Head from "next/head";
 import NavLinks from "./NavLinks";
 import Logo from "./Logo";
@@ -12,11 +12,12 @@ import { usePathname, useRouter } from "next/navigation";
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [isToggling, setIsToggling] = useState(false);
+    const [isRevealed, setIsRevealed] = useState(false);
     const isMobile = useIsMobile();
 
     const pathname = usePathname();
     const router = useRouter();
-    const revealClass = useRevealAnimation(true, "top");
+    const revealClass = useRevealAnimation(isRevealed, "top");
 
     const handleNavigation = async (href) => {
         try {
@@ -27,9 +28,7 @@ function Header() {
     };
 
     const fadeOutLoader = () => {
-        setTimeout(() => {
-            window.dispatchEvent(new CustomEvent("pageReady"));
-        }, 1000);
+        window.dispatchEvent(new CustomEvent("pageReady"));
     };
 
     const toggleMenu = useCallback(() => {
@@ -47,6 +46,25 @@ function Header() {
         pathname === href
             ? "text-white"
             : "opacity-50 hover:opacity-100 text-white";
+
+    useEffect(() => {
+        const hasVisited = sessionStorage.getItem("hasVisited");
+        if (hasVisited) {
+            setIsRevealed(true);
+        } else {
+            const handleReveal = () => {
+                setIsRevealed(true);
+                sessionStorage.setItem("hasVisited", "true");
+            };
+
+            const eventName = isMobile ? "pageIsReady" : "logoTranslated";
+            window.addEventListener(eventName, handleReveal);
+
+            return () => {
+                window.removeEventListener(eventName, handleReveal);
+            };
+        }
+    }, [isMobile]);
 
     return (
         <>
@@ -67,7 +85,7 @@ function Header() {
             <header
                 className={`fixed top-0 left-0 pt-6 md:pt-4 right-0 z-40 flex items-center justify-between container header-text ${revealClass}`}
             >
-                <Logo handleNavigation={handleNavigation} />
+                <Logo isOpen={isOpen} handleNavigation={handleNavigation} />
 
                 <NavLinks
                     handleNavigation={handleNavigation}

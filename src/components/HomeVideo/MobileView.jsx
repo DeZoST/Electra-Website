@@ -13,11 +13,9 @@ function MobileView({
     activeVideoIndex,
     handleVideoChange,
     openModal,
-    isLoaderGone,
-    revealClass,
 }) {
     return (
-        <div className="relative flex flex-col items-center justify-start w-full h-full overflow-hidden">
+        <div className="relative flex flex-col items-center justify-end w-full h-full p-6 overflow-hidden">
             {videos.map((video, index) => (
                 <VideoPlayer
                     key={index}
@@ -30,13 +28,12 @@ function MobileView({
                     }
                     onClick={() => openModal(video.muxPlaybackId)}
                     visible={index === activeVideoIndex}
-                    isLoaderGone={isLoaderGone}
                 />
             ))}
             <div
-                className={`absolute flex flex-col items-center space-y-2 bottom-4 ${revealClass}`}
+                className={`absolute flex flex-col items-center space-y-2 bottom-4}`}
             >
-                <h1 className={`text-lg text-white ${revealClass}`}>
+                <h1 className={`text-lg text-white`}>
                     {videos[activeVideoIndex].title}
                 </h1>
                 <p className="text-sm text-gray-300">

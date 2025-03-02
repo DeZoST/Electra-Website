@@ -14,11 +14,7 @@ function DesktopView({
     activeVideoIndex,
     progressRefs,
     handleVideoChange,
-    revealClass,
-    isLogoVisible,
-    isLogoTranslated,
     openModal,
-    isLoaderGone,
 }) {
     return (
         <>
@@ -36,7 +32,6 @@ function DesktopView({
                     activeVideoIndex={activeVideoIndex}
                     onClick={() => openModal(video.muxPlaybackId)}
                     visible={index === activeVideoIndex}
-                    isLoaderGone={isLoaderGone}
                 />
             ))}
             <HomeVideoDetails
@@ -44,9 +39,6 @@ function DesktopView({
                 activeVideoIndex={activeVideoIndex}
                 handleHover={handleVideoChange}
                 progressRefs={progressRefs}
-                revealClass={revealClass}
-                isLogoVisible={isLogoVisible}
-                isLogoTranslated={isLogoTranslated}
                 openModal={openModal}
             />
         </>
