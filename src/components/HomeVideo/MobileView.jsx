@@ -17,7 +17,7 @@ function MobileView({
     revealClass,
 }) {
     return (
-        <div className="relative flex flex-col items-center justify-start w-full h-full overflow-y-auto">
+        <div className="relative flex flex-col items-center justify-start w-full h-full overflow-hidden">
             {videos.map((video, index) => (
                 <VideoPlayer
                     key={index}
