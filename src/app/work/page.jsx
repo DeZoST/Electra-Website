@@ -13,11 +13,11 @@ export default async function Work() {
     }
 
     return (
-        <div className="container mt-32 lg:mt-60">
+        <section className="container mt-32 lg:mt-60">
             <h1 className="text-xl font-bold text-white uppercase md:text-3xl">
                 Our Work
             </h1>
             <ProjectList projects={projects} />
-        </div>
+        </section>
     );
 }
