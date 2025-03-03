@@ -79,6 +79,7 @@ function HomeVideoDetails({
                                 alt="Electra logo"
                                 width={320}
                                 height={85}
+                                priority
                             />
                         </div>
                     </li>
