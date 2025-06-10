@@ -26,7 +26,7 @@ function MobileView({
                             (activeVideoIndex + 1) % videos.length
                         )
                     }
-                    onClick={() => openModal(video.muxPlaybackId)}
+                    onClick={() => openModal()}
                     visible={index === activeVideoIndex}
                 />
             ))}

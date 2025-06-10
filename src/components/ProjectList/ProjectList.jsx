@@ -12,7 +12,6 @@ const VideoModal = dynamic(() => import("@/components/VideoModal/VideoModal"), {
 const ProjectList = ({ projects }) => {
     const [loadedIndexes, setLoadedIndexes] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
-    const [currentPlaybackId, setCurrentPlaybackId] = useState(null);
 
     useEffect(() => {
         setLoadedIndexes((prevIndexes) => [
@@ -24,13 +23,11 @@ const ProjectList = ({ projects }) => {
         ]);
     }, [projects]);
 
-    const handleOpenModal = (muxID) => {
-        setCurrentPlaybackId(muxID);
+    const handleOpenModal = () => {
         setModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        setCurrentPlaybackId(null);
         setModalOpen(false);
     };
 
@@ -54,21 +51,14 @@ const ProjectList = ({ projects }) => {
                             client={project.client}
                             director={project.director || null}
                             image={project.image}
-                            muxID={project.muxPlaybackId}
-                            onClick={() =>
-                                handleOpenModal(project.muxPlaybackId)
-                            }
+                            onClick={() => handleOpenModal()}
                             priority={index === 0}
                             isSingle={projects.length === 1}
                         />
                     </li>
                 ))}
             </ul>
-            <VideoModal
-                isOpen={modalOpen}
-                playbackId={currentPlaybackId}
-                onClose={handleCloseModal}
-            />
+            <VideoModal isOpen={modalOpen} onClose={handleCloseModal} />
         </>
     );
 };

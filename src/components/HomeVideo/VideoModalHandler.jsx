@@ -9,26 +9,19 @@ const VideoModal = dynamic(() => import("@/components/VideoModal/VideoModal"), {
 
 function VideoModalHandler({ children }) {
     const [modalOpen, setModalOpen] = useState(false);
-    const [currentPlaybackId, setCurrentPlaybackId] = useState(null);
 
-    const handleOpenModal = (playbackId) => {
-        setCurrentPlaybackId(playbackId);
+    const handleOpenModal = () => {
         setModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        setCurrentPlaybackId(null);
         setModalOpen(false);
     };
 
     return (
         <>
             {children({ handleOpenModal, handleCloseModal })}
-            <VideoModal
-                isOpen={modalOpen}
-                playbackId={currentPlaybackId}
-                onClose={handleCloseModal}
-            />
+            <VideoModal isOpen={modalOpen} onClose={handleCloseModal} />
         </>
     );
 }

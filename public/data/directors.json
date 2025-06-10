@@ -6,48 +6,36 @@
             {
                 "title": "Dust is Gold",
                 "client": "Ford",
-                "muxAssetId": "cuKCsiGI4zzK401024YMuBhoNE1qhBze01CmUar873MsWs",
-                "muxPlaybackId": "XdvyCtxC01GgLyKOlSNmhitkhmZgk9L402S6DQPf7bonY",
                 "image": "/images/Thumbnails/zw/01_Dust_is_Gold_(ZW).png",
                 "order": 1
             },
             {
                 "title": "Sun Globe",
                 "client": "Experience Scottsdale",
-                "muxAssetId": "dk1U5vOiMpEQ02I01lGX9eg11z46Y5ndixIEp01LEKK8Tk",
-                "muxPlaybackId": "ZrvpX2OHj96BKU7MyLNDcVC5NwWBxXcpZ23Ul1NOIgA",
                 "image": "/images/Thumbnails/zw/03_Sun_Globe_(ZW).png",
                 "order": 3
             },
             {
                 "title": "What Makes Us",
                 "client": "Geisinger",
-                "muxAssetId": "iIP02uQk01gBFvDG7GMVk9hfLQm9sENGkwhUeLcJ8VGWI",
-                "muxPlaybackId": "7ZQehp7SlbrHBy4HT1J01d9fTfaD7e5BOGvmfgwLPgL4",
                 "image": "/images/Thumbnails/zw/05_What_Makes_US_(ZW).png",
                 "order": 5
             },
             {
                 "title": "Memoria",
                 "client": "Experience Scottsdale",
-                "muxAssetId": "dk1U5vOiMpEQ02I01lGX9eg11z46Y5ndixIEp01LEKK8Tk",
-                "muxPlaybackId": "ZrvpX2OHj96BKU7MyLNDcVC5NwWBxXcpZ23Ul1NOIgA",
                 "image": "/images/Thumbnails/zw/07_Memoria_(ZW).png",
                 "order": 7
             },
             {
                 "title": "Temporary is Beautiful",
                 "client": "Kelly",
-                "muxAssetId": "KrkR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/zw/09_Temporary_is_Beautiful_(ZW).png",
                 "order": 9
             },
             {
                 "title": "We Fly",
                 "client": "Nike",
-                "muxAssetId": "K3kR400Adsd5944EozIrrIdR7J01Y8DjjyoUgnX3hbWRU",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/zw/13_We_Fly_(ZW).png",
                 "order": 13
             }
@@ -59,32 +47,24 @@
             {
                 "title": "The Agility of M",
                 "client": "BMW",
-                "muxAssetId": "KXkx22Rmq02DB54bGjtaPqmuCPNg01Y138CQ5400upBkmc",
-                "muxPlaybackId": "401X5Mrcq009b3xpJxFeOgfCzQf3oZ1tVg0186GAlEA602c",
                 "image": "/images/Thumbnails/lg/02_The_Agility_of_M_(LD).png",
                 "order": 2
             },
             {
                 "title": "Project See Me",
                 "client": "3M",
-                "muxAssetId": "j5791VGb2rcgDz4E2qiqiXOfVTW3pyujsm75600y9py00",
-                "muxPlaybackId": "mACdPBjc3T8h71wIIotEkstAQ5omVWgWCbbz101700drQ",
                 "image": "/images/Thumbnails/lg/06_Project_See_Me_(LD).png",
                 "order": 6
             },
             {
                 "title": "Get Gone",
                 "client": "Nike",
-                "muxAssetId": "02bd5RPi541yG1StmAxnYUdP000202kBE5kDpPMeLEu42mA",
-                "muxPlaybackId": "gbylM1LZh1C00o7u5H33i2GGtG5L3M00PpCUGY6JdWKyc",
                 "image": "/images/Thumbnails/lg/10_Nike_Get_Gone_(LD).png",
                 "order": 10
             },
             {
                 "title": "Thank You, Hockey",
                 "client": "NHL",
-                "muxAssetId": "v4ZamFnAE4vPm5w003oV18IPQxGAfJqzEaMMIZOUQmuk",
-                "muxPlaybackId": "VBwJ5TA00Ob2iOYXRnmoqJKq502SXO02TG5OqqpCQNOx3s",
                 "image": "/images/Thumbnails/lg/11_Thank_You_Hockey_(LD).png",
                 "order": 11
             }
@@ -96,8 +76,6 @@
             {
                 "title": "Storm",
                 "client": "Ford Ranger",
-                "muxAssetId": "xi9ta7En01KnBsZUt2Q3dL01TycbBKgzrf3zCVKWfJdTk",
-                "muxPlaybackId": "RvG9302MShMspvXDXxjEOO1Moypf6ebBJvu8ZyRVvNmc",
                 "image": "/images/Thumbnails/ag/04_Storm_(AG).png",
                 "order": 4
             }
@@ -109,16 +87,12 @@
             {
                 "title": "The Case",
                 "client": "Tax Act",
-                "muxAssetId": "mjGjFm023zAsiFwRpSjRV01RZ01YorT00WZhd007lqd6QS4M",
-                "muxPlaybackId": "c7q4aa5CsjlVvSntUpvYmce8FJbcCxuC7JB008EH02EE8",
                 "image": "/images/Thumbnails/bw/12_The_Case_(BW).png",
                 "order": 12
             },
             {
                 "title": "Boy Band",
                 "client": "Geico",
-                "muxAssetId": "BF8WYmqZ3caVkmEm3oxjoAj3v9td00cVEUhWyE8mZfAo",
-                "muxPlaybackId": "oV02irniUNdfGff7eKifCRxYQTbRwaWEtV2WlL01f9Pbs",
                 "image": "/images/Thumbnails/bw/14_Pop_Star_(BW).png",
                 "order": 14
             }

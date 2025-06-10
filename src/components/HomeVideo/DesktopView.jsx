@@ -30,7 +30,7 @@ function DesktopView({
                     }
                     progressRefs={progressRefs}
                     activeVideoIndex={activeVideoIndex}
-                    onClick={() => openModal(video.muxPlaybackId)}
+                    onClick={() => openModal()}
                     visible={index === activeVideoIndex}
                 />
             ))}
