@@ -89,7 +89,7 @@ function HomeVideoDetails({
                             key={video.id || index}
                             className={`cursor-pointer py-4 pl-8 transition-transform translate-y-0 ${revealClass}`}
                             onMouseEnter={() => handleHover(index)}
-                            onClick={() => openModal(video.muxPlaybackId)}
+                            onClick={() => openModal()}
                         >
                             <div>
                                 <h2 className="text-gray-300">
